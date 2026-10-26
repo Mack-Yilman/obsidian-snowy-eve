@@ -1,0 +1,7 @@
+{
+  "lora-latin-400-normal.woff2": { "family": "SE Lora", "weight": 400 },
+  "lora-latin-400-italic.woff2": { "family": "SE Lora", "weight": 400, "style": "italic" },
+  "lora-latin-700-normal.woff2": { "family": "SE Lora", "weight": 700 },
+  "cormorant-garamond-latin-600-normal.woff2": { "family": "SE Cormorant Garamond", "weight": 600 },
+  "great-vibes-latin-400-normal.woff2": { "family": "SE Great Vibes", "weight": 400 }
+}

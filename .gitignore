@@ -1,0 +1,25 @@
+# Instrucciones personales para agentes (nunca se suben)
+CLAUDE.md
+CLAUDE.local.md
+AGENTS.md
+GEMINI.md
+.claude/
+.agents/
+.gemini/
+
+# Sensibles
+.env
+.env.*
+.dev.vars
+*.key
+*.pem
+CLAUDE-SECURITY-*/
+
+# Local
+node_modules/
+_referencias/
+_prueba-vault/
+_capturas/
+.playwright-cli/
+.DS_Store
+Thumbs.db

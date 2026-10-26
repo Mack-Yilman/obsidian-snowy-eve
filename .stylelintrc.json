@@ -1,0 +1,15 @@
+{
+  "extends": "stylelint-config-obsidianmd",
+  "rules": {
+    "selector-class-pattern": null,
+    "no-descending-specificity": null,
+    "plugin/no-unsupported-browser-features": [
+      true,
+      {
+        "severity": "warning",
+        "browsers": ["electron >= 28"],
+        "ignore": ["css-nesting", "css-cascade-layers"]
+      }
+    ]
+  }
+}

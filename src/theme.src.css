@@ -1,0 +1,736 @@
+/* ==========================================================================
+   Snowy Eve — a snowy Christmas Eve theme for Obsidian
+   A midnight-blue sky over a snowed-in village, warm golden lights and red baubles;
+   a bright snowy morning by day.
+
+   Author: Mack Chirinos · MIT License
+
+   Fonts (embedded):
+     Lora — The Lora Project Authors (SIL OFL 1.1)
+     Cormorant Garamond — The Cormorant Project Authors (SIL OFL 1.1)
+     Great Vibes — The Great Vibes Pro Project Authors (SIL OFL 1.1)
+   Ornaments (Santa's sleigh, village, star, snowflake, lantern, bauble) drawn for this theme.
+
+   Built by build.mjs from src/theme.src.css — edit the source, not theme.css.
+   ========================================================================== */
+
+/* @settings
+
+name: Snowy Eve
+id: snowy-eve
+settings:
+-   id: se-h-atmosphere
+    title: Atmosphere
+    type: heading
+    level: 2
+    collapsed: false
+-   id: se-no-snow
+    title: Disable falling snow
+    description: Snow is also hidden when your system asks to reduce motion.
+    type: class-toggle
+-   id: se-snow-opacity
+    title: Snow intensity
+    type: variable-number-slider
+    default: 0.6
+    min: 0.1
+    max: 1
+    step: 0.05
+-   id: se-no-sky
+    title: Disable the starry sky behind notes
+    description: Only in dark mode.
+    type: class-toggle
+-   id: se-no-village
+    title: Disable the snowy village under the file explorer
+    type: class-toggle
+-   id: se-h-ornaments
+    title: Ornaments
+    type: heading
+    level: 2
+    collapsed: false
+-   id: se-emblem
+    title: Emblem under the note title
+    type: class-select
+    allowEmpty: false
+    default: se-emblem-sleigh
+    options:
+    -   label: Santa's sleigh
+        value: se-emblem-sleigh
+    -   label: Golden star
+        value: se-emblem-star
+    -   label: None
+        value: se-emblem-none
+-   id: se-folder-style
+    title: Folder toggle in the file explorer
+    type: class-select
+    allowEmpty: false
+    default: se-folder-flake
+    options:
+    -   label: Snowflake
+        value: se-folder-flake
+    -   label: Native arrow
+        value: se-folder-native
+-   id: se-no-baubles
+    title: Plain list bullets
+    description: Use round dots instead of red and gold baubles.
+    type: class-toggle
+-   id: se-no-ornaments
+    title: Disable heading and divider ornaments
+    type: class-toggle
+-   id: se-no-frames
+    title: Disable frost frames
+    description: The thin frame with snowflake corners around sidebar panels and dialogs.
+    type: class-toggle
+-   id: se-h-typography
+    title: Typography
+    type: heading
+    level: 2
+    collapsed: false
+-   id: se-title-serif
+    title: Serif note title
+    description: Uses Cormorant Garamond for the note title instead of the Great Vibes script.
+    type: class-toggle
+-   id: se-h-colors
+    title: Colors
+    type: heading
+    level: 2
+    collapsed: true
+-   id: se-info-accent
+    type: info-text
+    markdown: true
+    text: The accent color (buttons, selection) follows **Settings → Appearance → Accent color**. These pickers recolor headings, rules, bullets, tasks and folder snowflakes; the title emblem, the village and the frames keep the theme palette.
+-   id: se-gold
+    title: Golden lights
+    type: variable-themed-color
+    format: hex
+    opacity: false
+    default-light: '#8A6418'
+    default-dark: '#E9B95A'
+-   id: se-red
+    title: Bauble red
+    type: variable-themed-color
+    format: hex
+    opacity: false
+    default-light: '#A51F2A'
+    default-dark: '#E0525B'
+-   id: se-ice
+    title: Ice blue
+    type: variable-themed-color
+    format: hex
+    opacity: false
+    default-light: '#1F5FA8'
+    default-dark: '#8EC3F0'
+
+*/
+
+/* @@FONTS@@ */
+
+/* ==========================================================================
+   1. Palette & Obsidian variables
+   ========================================================================== */
+.theme-dark {
+  --se-canvas: #0A1428;
+  --se-paper: #0E1A33;
+  --se-line: #22355C;
+  --se-text: #E8EEF7;
+  --se-muted: #A9B8D0;
+  --se-faint: #7D8FAE;
+  --se-red: #E0525B;
+  --se-ice: #8EC3F0;
+  --se-gold: #E9B95A;
+  --se-pine: #6FB08E;
+  --se-snow: #F2F6FC;
+  --se-star-dot: #DCE6F5;
+  --se-code-bg: #0B1630;
+  --se-check-mark: #FBE3A6;
+  --accent-h: 210;
+  --accent-s: 62%;
+  --accent-l: 52%;
+  --se-emblem-sleigh: @@SVG:trineo-luz:#E9B95A@@, @@SVG:trineo:#C9D6EA@@;
+  --se-star: @@SVG:estrella:#E9B95A@@;
+  --se-frame: @@SVG:marco:#7F97BC@@;
+  --se-village: @@SVG:pueblo-ventanas:#E9B95A@@, @@SVG:pueblo:#1A2D55@@;
+  --se-lantern: @@SVG:farol-luz:#F5C76B@@, @@SVG:farol:#C9D6EA@@;
+  --color-base-00: #0E1A33;
+  --color-base-05: #0C1830;
+  --color-base-10: #11203D;
+  --color-base-20: #0A1428;
+  --color-base-25: #142546;
+  --color-base-30: #22355C;
+  --color-base-35: #2A3F69;
+  --color-base-40: #364C78;
+  --color-base-50: #56698E;
+  --color-base-60: #7D8FAE;
+  --color-base-70: #A9B8D0;
+  --color-base-100: #E8EEF7;
+}
+
+.theme-light {
+  --se-canvas: #EAF0F7;
+  --se-paper: #F8FAFD;
+  --se-line: #D3DDEA;
+  --se-text: #1B2A44;
+  --se-muted: #4A5B78;
+  --se-faint: #687995;
+  --se-red: #A51F2A;
+  --se-ice: #1F5FA8;
+  --se-gold: #8A6418;
+  --se-pine: #2F6B4F;
+  --se-snow: #9DB2CC;
+  --se-star-dot: #9DB2CC;
+  --se-code-bg: #EEF3F9;
+  --se-check-mark: #F6DC95;
+  --accent-h: 212;
+  --accent-s: 69%;
+  --accent-l: 39%;
+  --se-emblem-sleigh: @@SVG:trineo-luz:#B8862A@@, @@SVG:trineo:#4A5B78@@;
+  --se-star: @@SVG:estrella:#8A6418@@;
+  --se-frame: @@SVG:marco:#9DB2CC@@;
+  --se-village: @@SVG:pueblo-ventanas:#E2B65A@@, @@SVG:pueblo:#CBD7E6@@;
+  --se-lantern: @@SVG:farol-luz:#E2A93E@@, @@SVG:farol:#4A5B78@@;
+  --color-base-00: #F8FAFD;
+  --color-base-05: #F3F6FA;
+  --color-base-10: #EFF3F8;
+  --color-base-20: #EAF0F7;
+  --color-base-25: #E0E8F2;
+  --color-base-30: #D3DDEA;
+  --color-base-35: #C5D1E1;
+  --color-base-40: #AFBED2;
+  --color-base-50: #8C9BB3;
+  --color-base-60: #687995;
+  --color-base-70: #4A5B78;
+  --color-base-100: #1B2A44;
+}
+
+.theme-dark,
+.theme-light {
+  --color-red: var(--se-red);
+  --color-green: var(--se-pine);
+  --color-yellow: var(--se-gold);
+  --color-blue: var(--se-ice);
+  --background-primary: var(--se-paper);
+  --background-primary-alt: color-mix(in srgb, var(--se-paper) 85%, var(--se-canvas));
+  --background-secondary: var(--se-canvas);
+  --background-secondary-alt: color-mix(in srgb, var(--se-canvas) 70%, var(--se-line));
+  --background-modifier-border: var(--se-line);
+  --background-modifier-border-hover: color-mix(in srgb, var(--se-ice) 35%, var(--se-line));
+  --background-modifier-border-focus: color-mix(in srgb, var(--se-ice) 60%, transparent);
+  --background-modifier-hover: color-mix(in srgb, var(--se-ice) 9%, transparent);
+  --background-modifier-active-hover: color-mix(in srgb, var(--se-ice) 14%, transparent);
+  --divider-color: var(--se-line);
+  --titlebar-background: var(--se-canvas);
+  --titlebar-background-focused: var(--se-canvas);
+  --ribbon-background: var(--se-canvas);
+  --tab-container-background: var(--se-canvas);
+  --text-normal: var(--se-text);
+  --text-muted: var(--se-muted);
+  --text-faint: var(--se-faint);
+  --text-selection: color-mix(in srgb, var(--se-ice) 28%, transparent);
+  --text-highlight-bg: color-mix(in srgb, var(--se-gold) 32%, transparent);
+  --caret-color: var(--se-gold);
+  --link-color: var(--se-ice);
+  --link-color-hover: var(--se-gold);
+  --link-external-color: var(--se-ice);
+  --link-external-color-hover: var(--se-gold);
+  --link-unresolved-color: var(--se-muted);
+  --link-unresolved-decoration-color: color-mix(in srgb, var(--se-ice) 40%, transparent);
+  --h1-color: var(--se-gold);
+  --h2-color: var(--se-text);
+  --h3-color: var(--se-ice);
+  --h4-color: var(--se-red);
+  --h5-color: var(--se-muted);
+  --h6-color: var(--se-faint);
+  --inline-title-color: var(--se-gold);
+  --tag-color: var(--se-ice);
+  --tag-color-hover: var(--se-text);
+  --tag-background: color-mix(in srgb, var(--se-ice) 12%, transparent);
+  --tag-background-hover: color-mix(in srgb, var(--se-ice) 22%, transparent);
+  --tag-border-color: color-mix(in srgb, var(--se-ice) 35%, transparent);
+  --hr-color: color-mix(in srgb, var(--se-gold) 55%, transparent);
+  --list-marker-color: var(--se-red);
+  --list-marker-color-hover: var(--se-gold);
+  --list-marker-color-collapsed: var(--se-gold);
+  --checkbox-color: var(--se-red);
+  --checkbox-color-hover: var(--se-red);
+  --checkbox-border-color: color-mix(in srgb, var(--se-red) 75%, transparent);
+  --checkbox-border-color-hover: var(--se-red);
+  --checkbox-marker-color: var(--se-check-mark);
+  --checklist-done-color: var(--se-faint);
+  --blockquote-border-color: var(--se-ice);
+  --blockquote-background-color: color-mix(in srgb, var(--se-ice) 6%, transparent);
+  --table-header-background: color-mix(in srgb, var(--se-ice) 10%, transparent);
+  --table-header-background-hover: color-mix(in srgb, var(--se-ice) 16%, transparent);
+  --table-border-color: color-mix(in srgb, var(--se-ice) 25%, var(--se-line));
+  --table-row-alt-background: color-mix(in srgb, var(--se-ice) 3%, transparent);
+  --code-background: var(--se-code-bg);
+  --code-normal: var(--se-text);
+  --code-comment: var(--se-faint);
+  --code-function: var(--se-gold);
+  --code-keyword: var(--se-ice);
+  --code-important: var(--se-red);
+  --code-operator: var(--se-muted);
+  --code-property: var(--se-pine);
+  --code-punctuation: var(--se-muted);
+  --code-string: var(--se-pine);
+  --code-tag: var(--se-red);
+  --code-value: var(--se-gold);
+  --nav-item-color-active: var(--se-text);
+  --nav-item-background-active: color-mix(in srgb, var(--se-ice) 16%, transparent);
+  --nav-item-color-selected: var(--se-text);
+  --nav-item-background-selected: color-mix(in srgb, var(--se-gold) 14%, transparent);
+  --nav-collapse-icon-color: var(--se-gold);
+  --nav-collapse-icon-color-collapsed: var(--se-muted);
+  --nav-indentation-guide-color: color-mix(in srgb, var(--se-ice) 18%, transparent);
+  --indentation-guide-color: color-mix(in srgb, var(--se-ice) 15%, transparent);
+  --indentation-guide-color-active: color-mix(in srgb, var(--se-ice) 38%, transparent);
+}
+
+/* ==========================================================================
+   2. Typography
+   ========================================================================== */
+body {
+  --se-mask-bauble: @@SVG:esfera@@;
+  --se-snow-opacity: 0.6;
+  --tag-border-width: 1px;
+  --checkbox-radius: 50%;
+  --blockquote-border-thickness: 2px;
+  --blockquote-font-style: italic;
+  --callout-radius: 4px;
+  --callout-border-width: 1px;
+  --callout-border-opacity: 0.3;
+  --se-font-text: "SE Lora", "Lora", "Georgia", serif;
+  --se-font-display: "SE Cormorant Garamond", "Cormorant Garamond", "Garamond", "Georgia", serif;
+  --se-font-title: "SE Great Vibes", "Great Vibes", var(--se-font-display);
+  --font-text-theme: var(--se-font-text);
+  --font-monospace-theme: "JetBrains Mono", "Cascadia Code", "Consolas", "Menlo", monospace;
+  --inline-title-font: var(--se-font-title);
+  --inline-title-size: 3.1em;
+  --inline-title-weight: 400;
+  --inline-title-line-height: 1.25;
+  --h1-font: var(--se-font-display);
+  --h2-font: var(--se-font-display);
+  --h3-font: var(--se-font-display);
+  --h4-font: var(--se-font-display);
+  --h5-font: var(--se-font-display);
+  --h6-font: var(--se-font-display);
+  --h1-size: 2.2em;
+  --h2-size: 1.8em;
+  --h3-size: 1.5em;
+  --h4-size: 1.25em;
+  --h5-size: 1.12em;
+  --h6-size: 1.05em;
+  --h1-weight: 600;
+  --h2-weight: 600;
+  --h3-weight: 600;
+  --h4-weight: 600;
+  --h5-weight: 600;
+  --h6-weight: 600;
+
+  font-variant-numeric: lining-nums;
+  font-kerning: normal;
+}
+
+body.se-title-serif {
+  --se-font-title: var(--se-font-display);
+  --inline-title-size: 2.4em;
+  --inline-title-weight: 600;
+}
+
+.markdown-rendered mark,
+.markdown-source-view .cm-highlight {
+  color: var(--text-normal);
+  padding: 0 0.12em;
+  border-radius: 2px;
+}
+
+.view-header-title,
+.workspace-tab-header-inner-title,
+.callout-title-inner,
+.markdown-rendered th {
+  font-family: var(--se-font-display);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.view-header-title,
+.workspace-tab-header-inner-title {
+  font-size: 1.08em;
+}
+
+/* ==========================================================================
+   3. Note title & headings
+   ========================================================================== */
+.inline-title {
+  text-align: center;
+}
+
+.theme-dark .inline-title {
+  text-shadow: 0 0 22px color-mix(in srgb, var(--se-gold) 35%, transparent);
+}
+
+/* emblem under the title: Santa's sleigh (two layers: the golden trail on top) or a star */
+body:not(.se-emblem-none) .inline-title {
+  padding-bottom: 3.6rem;
+  background-image: var(--se-emblem-sleigh);
+  background-position: center bottom 0.3rem;
+  background-size: auto 3rem;
+  background-repeat: no-repeat;
+}
+
+body.se-emblem-star .inline-title {
+  background-image: var(--se-star);
+  background-size: auto 2.4rem;
+}
+
+/* H1 — centred, with a gold rule broken by a small star (same in reading view and live preview;
+   CodeMirror lines get no pseudo-elements, they misplace the caret) */
+.markdown-rendered h1,
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-header-1 {
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+body:not(.se-no-ornaments) .markdown-rendered h1,
+body:not(.se-no-ornaments) .markdown-source-view.mod-cm6 .cm-line.HyperMD-header-1 {
+  padding-bottom: 0.7em;
+  background-image:
+    var(--se-star),
+    linear-gradient(90deg, transparent 8%, var(--hr-color) 30%, var(--hr-color) calc(50% - 1em), transparent calc(50% - 1em), transparent calc(50% + 1em), var(--hr-color) calc(50% + 1em), var(--hr-color) 70%, transparent 92%);
+  background-position: center bottom, center bottom 0.24em;
+  background-size: auto 0.55em, 100% 1px;
+  background-repeat: no-repeat;
+}
+
+/* H2 — a gold rule fading to the right */
+body:not(.se-no-ornaments) .markdown-rendered h2,
+body:not(.se-no-ornaments) .markdown-source-view.mod-cm6 .cm-line.HyperMD-header-2 {
+  padding-bottom: 0.15em;
+  background-image: linear-gradient(90deg, color-mix(in srgb, var(--se-gold) 70%, transparent), color-mix(in srgb, var(--se-gold) 15%, transparent) 45%, transparent 88%);
+  background-position: left bottom;
+  background-size: 100% 1px;
+  background-repeat: no-repeat;
+}
+
+/* H3 — a small red bauble (reading view only; live preview keeps the line clean) */
+body:not(.se-no-ornaments) .markdown-rendered h3::before {
+  content: "";
+  display: inline-block;
+  width: 0.5em;
+  height: 0.5em;
+  margin-inline-end: 0.45em;
+  vertical-align: 0.05em;
+  background-color: var(--se-red);
+  mask-image: var(--se-mask-bauble);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+}
+
+.markdown-rendered h4,
+.HyperMD-header-4 {
+  letter-spacing: 0.04em;
+}
+
+.markdown-source-view.mod-cm6 .cm-formatting-header {
+  color: color-mix(in srgb, var(--se-ice) 60%, transparent);
+}
+
+/* ==========================================================================
+   4. Dividers, quotes, callouts, tables, lists, tasks
+   ========================================================================== */
+body:not(.se-no-ornaments) .markdown-rendered hr,
+body:not(.se-no-ornaments) .markdown-source-view.mod-cm6 hr {
+  height: 22px;
+  border: none;
+  background-image:
+    var(--se-star),
+    linear-gradient(90deg, transparent 4%, var(--hr-color) 30%, var(--hr-color) calc(50% - 22px), transparent calc(50% - 22px), transparent calc(50% + 22px), var(--hr-color) calc(50% + 22px), var(--hr-color) 70%, transparent 96%);
+  background-position: center;
+  background-size: 18px 18px, 100% 1px;
+  background-repeat: no-repeat;
+}
+
+.markdown-rendered blockquote {
+  padding: 0.4em 1em 0.4em 1.2em;
+  border-radius: 0 4px 4px 0;
+}
+
+.callout {
+  border-inline-start-width: 3px;
+}
+
+.markdown-rendered th {
+  color: var(--se-gold);
+}
+
+/* list bullets: red baubles, gold on nested levels */
+body:not(.se-no-baubles) .list-bullet::after {
+  width: 0.8em;
+  height: 0.8em;
+  border-radius: 0;
+  mask-image: var(--se-mask-bauble);
+  mask-size: contain;
+  mask-position: center;
+  mask-repeat: no-repeat;
+}
+
+/* through the variable, so Obsidian's hover and collapsed colors still apply */
+.markdown-rendered :is(ul, ol) ul,
+.markdown-source-view.mod-cm6 .cm-line[class*="HyperMD-list-line-"]:not(.HyperMD-list-line-1) {
+  --list-marker-color: var(--se-gold);
+  --list-marker-color-collapsed: var(--se-red);
+}
+
+/* checked task: a golden star on a red bauble instead of the tick */
+:is(.markdown-rendered, .markdown-source-view.mod-cm6) input.task-list-item-checkbox:checked::after {
+  mask-image: @@SVG:estrella@@;
+  mask-size: 78%;
+  mask-position: center;
+  mask-repeat: no-repeat;
+}
+
+/* ==========================================================================
+   5. File explorer — a snowflake instead of the folder arrow,
+   and a snowed-in village at the foot of the panel
+   ========================================================================== */
+.nav-file-title.is-active {
+  box-shadow: inset 2px 0 0 var(--se-gold);
+}
+
+body:not(.se-folder-native) .nav-folder-title > .collapse-icon {
+  position: relative;
+  width: 18px;
+  margin-inline-end: 4px;
+  opacity: 1;
+}
+
+body:not(.se-folder-native) .nav-folder-title > .collapse-icon > .svg-icon {
+  display: none;
+}
+
+body:not(.se-folder-native) .nav-folder-title > .collapse-icon::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 14px;
+  height: 14px;
+  margin: auto;
+  background-color: var(--se-gold);
+  mask-image: @@SVG:copo@@;
+  mask-size: contain;
+  mask-position: center;
+  mask-repeat: no-repeat;
+  transition: transform 0.25s ease, background-color 0.15s ease;
+}
+
+body:not(.se-folder-native) .nav-folder-title > .collapse-icon.is-collapsed::after {
+  background-color: var(--se-muted);
+  transform: rotate(-30deg) scale(0.9);
+}
+
+body:not(.se-folder-native) .nav-folder-title:hover > .collapse-icon::after {
+  background-color: var(--se-gold);
+}
+
+body:not(.se-no-village) .workspace-leaf-content[data-type="file-explorer"] .nav-files-container {
+  padding-bottom: 72px;
+  background-image: var(--se-village);
+  background-position: center bottom;
+  background-size: auto 64px;
+  background-repeat: repeat-x;
+}
+
+/* ==========================================================================
+   6. Tabs, frost frames & new tab
+   ========================================================================== */
+.workspace-tab-header.is-active .workspace-tab-header-inner-title {
+  color: var(--se-gold);
+}
+
+.mod-root .workspace-tab-header.is-active .workspace-tab-header-inner {
+  box-shadow: inset 0 2px 0 var(--se-red);
+}
+
+/* frost frames: each sidebar tab group becomes a framed card, and dialogs get the same frame
+   (nine-slice SVG: a thin double line with a snowflake in each corner) */
+body:not(.se-no-frames) .workspace-split.mod-sidedock .workspace-tabs {
+  position: relative;
+  width: auto;
+  margin: 6px;
+}
+
+body:not(.se-no-frames) .workspace-split.mod-sidedock .workspace-tabs::after,
+body:not(.se-no-frames) .modal::after,
+body:not(.se-no-frames) .prompt::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+  border: 32px solid transparent;
+  border-image: var(--se-frame) 32 stretch;
+}
+
+/* the group under the window buttons (frameless title bar): frame starts below its tab header */
+body:not(.se-no-frames) .workspace-split.mod-sidedock .workspace-tabs.mod-top-right-space::after {
+  top: var(--header-height);
+}
+
+body:not(.se-no-frames) .workspace-split.mod-sidedock .workspace-tab-header-container {
+  padding-inline: 10px;
+  padding-top: 4px;
+  border-bottom: none;
+}
+
+body:not(.se-no-frames) .workspace-split.mod-sidedock .workspace-tab-container {
+  padding: 0 8px 8px;
+}
+
+body:not(.se-no-frames) .workspace-split.mod-sidedock .workspace-leaf-content {
+  box-shadow: none;
+}
+
+body:not(.se-no-frames) :is(.modal, .prompt) {
+  border-color: transparent;
+}
+
+/* new tab: a lit lantern over the village under the night sky */
+.workspace-leaf-content[data-type="empty"] .view-content {
+  background-image:
+    var(--se-village),
+    radial-gradient(circle at 12% 18%, var(--se-star-dot) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 34% 9%, var(--se-star-dot) 0 1.3px, transparent 2px),
+    radial-gradient(circle at 58% 22%, var(--se-star-dot) 0 0.9px, transparent 1.5px),
+    radial-gradient(circle at 81% 12%, var(--se-star-dot) 0 1.2px, transparent 1.9px),
+    radial-gradient(circle at 92% 30%, var(--se-star-dot) 0 0.9px, transparent 1.5px),
+    radial-gradient(circle at 24% 36%, var(--se-star-dot) 0 0.8px, transparent 1.4px),
+    radial-gradient(ellipse at 50% 0%, color-mix(in srgb, var(--se-ice) 14%, transparent), transparent 70%);
+
+  /* --se-village is two layers (lit windows, then the silhouette) */
+  background-position: center bottom, center bottom, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
+  background-size: auto 110px, auto 110px, auto, auto, auto, auto, auto, auto, auto;
+  background-repeat: repeat-x, repeat-x, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+}
+
+.workspace-leaf-content[data-type="empty"] .empty-state-container::before {
+  content: "Snowy Eve";
+  display: block;
+  padding-top: 6.4rem;
+  margin-bottom: 0.3em;
+  background-image: var(--se-lantern);
+  background-position: center top;
+  background-size: auto 5.6rem;
+  background-repeat: no-repeat;
+  font-family: var(--se-font-title);
+  font-size: 3em;
+  line-height: 1.2;
+  color: var(--se-gold);
+}
+
+.workspace-leaf-content[data-type="empty"] .empty-state-title {
+  font-family: var(--se-font-display);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* ==========================================================================
+   7. Night sky & falling snow.
+   Stars are static gradients behind dark-mode notes; the snow drifts in two layers
+   and animates only transform (no repaint per frame); it never catches clicks.
+   ========================================================================== */
+body:not(.se-no-sky).theme-dark .workspace-leaf-content[data-type="markdown"] .view-content {
+  background-image:
+    radial-gradient(circle at 30px 40px, color-mix(in srgb, var(--se-star-dot) 55%, transparent) 0 0.9px, transparent 1.5px),
+    radial-gradient(circle at 170px 90px, color-mix(in srgb, var(--se-star-dot) 40%, transparent) 0 0.7px, transparent 1.3px),
+    radial-gradient(circle at 250px 210px, color-mix(in srgb, var(--se-star-dot) 50%, transparent) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 90px 260px, color-mix(in srgb, var(--se-star-dot) 35%, transparent) 0 0.7px, transparent 1.3px),
+    radial-gradient(ellipse at 50% 0%, color-mix(in srgb, var(--se-ice) 7%, transparent), transparent 60%);
+  background-size: 310px 310px, 310px 310px, 310px 310px, 310px 310px, 100% 100%;
+  background-repeat: repeat, repeat, repeat, repeat, no-repeat;
+}
+
+.workspace-leaf-content[data-type="markdown"] .view-content {
+  position: relative;
+  overflow: hidden;
+}
+
+body:not(.se-no-snow) .workspace-leaf-content[data-type="markdown"] .view-content::before,
+body:not(.se-no-snow) .workspace-leaf-content[data-type="markdown"] .view-content::after {
+  --se-flake: color-mix(in srgb, var(--se-snow) calc(var(--se-snow-opacity) * 100%), transparent);
+
+  content: "";
+  position: absolute;
+  inset: calc(-1 * var(--se-tile)) 0 0;
+  z-index: 1;
+  pointer-events: none;
+  background-size: var(--se-tile) var(--se-tile);
+  animation: se-snowfall var(--se-fall) linear infinite;
+  will-change: transform;
+}
+
+body:not(.se-no-snow) .workspace-leaf-content[data-type="markdown"] .view-content::before {
+  --se-tile: 220px;
+  --se-fall: 24s;
+
+  background-image:
+    radial-gradient(circle at 20px 30px, var(--se-flake) 0 1.4px, transparent 2px),
+    radial-gradient(circle at 92px 112px, var(--se-flake) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 160px 48px, var(--se-flake) 0 1.4px, transparent 2px),
+    radial-gradient(circle at 202px 178px, var(--se-flake) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 58px 190px, var(--se-flake) 0 1.2px, transparent 1.8px),
+    radial-gradient(circle at 132px 160px, var(--se-flake) 0 0.8px, transparent 1.4px);
+}
+
+body:not(.se-no-snow) .workspace-leaf-content[data-type="markdown"] .view-content::after {
+  --se-tile: 340px;
+  --se-fall: 16s;
+
+  background-image:
+    radial-gradient(circle at 50px 80px, var(--se-flake) 0 2px, transparent 2.8px),
+    radial-gradient(circle at 250px 40px, var(--se-flake) 0 2.4px, transparent 3.2px),
+    radial-gradient(circle at 170px 230px, var(--se-flake) 0 1.8px, transparent 2.6px),
+    radial-gradient(circle at 300px 300px, var(--se-flake) 0 2.2px, transparent 3px);
+}
+
+@keyframes se-snowfall {
+  to {
+    transform: translateY(var(--se-tile));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body:not(.se-no-snow) .workspace-leaf-content[data-type="markdown"] .view-content::before,
+  body:not(.se-no-snow) .workspace-leaf-content[data-type="markdown"] .view-content::after {
+    content: none;
+  }
+}
+
+/* ==========================================================================
+   8. Print — plain ink on paper
+   ========================================================================== */
+@media print {
+  /* same selectors as the ornaments above, so these win by order */
+  body:not(.se-emblem-none) .inline-title,
+  body:not(.se-no-ornaments) .markdown-rendered :is(h1, h2, hr) {
+    padding-top: 0;
+    padding-bottom: 0;
+    background: none;
+    text-shadow: none;
+  }
+
+  body:not(.se-no-ornaments) .markdown-rendered hr {
+    height: auto;
+    border-top: 1px solid var(--hr-color);
+  }
+
+  body:not(.se-no-ornaments) .markdown-rendered h3::before {
+    display: none;
+  }
+
+  .theme-dark .inline-title {
+    text-shadow: none;
+  }
+
+  body:not(.se-no-snow) .workspace-leaf-content[data-type="markdown"] .view-content::before,
+  body:not(.se-no-snow) .workspace-leaf-content[data-type="markdown"] .view-content::after {
+    content: none;
+  }
+}
