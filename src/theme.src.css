@@ -45,6 +45,10 @@ settings:
 -   id: se-no-tree
     title: Disable the Christmas tree in the file explorer
     type: class-toggle
+-   id: se-no-graph-scene
+    title: Plain graph background
+    description: Keeps the Christmas node colours but removes the sky, village and snow behind the graph.
+    type: class-toggle
 -   id: se-h-ornaments
     title: Ornaments
     type: heading
@@ -162,6 +166,12 @@ settings:
   --se-star: @@SVG:estrella:#E9B95A@@;
   --se-frame: @@SVG:marco:#7F97BC@@;
   --se-village: @@SVG:pueblo-noche@@;
+  --graph-node: var(--se-gold);
+  --graph-node-tag: var(--se-h2);
+  --graph-node-attachment: var(--se-h3);
+  --graph-node-unresolved: color-mix(in srgb, var(--se-ice) 45%, transparent);
+  --graph-node-focused: var(--se-bold);
+  --graph-line: color-mix(in srgb, var(--se-ice) 35%, transparent);
   --se-sky: radial-gradient(ellipse at 50% 0%, color-mix(in srgb, var(--se-ice) 14%, transparent), transparent 70%);
   --color-base-00: #0E1A33;
   --color-base-05: #0C1830;
@@ -212,6 +222,12 @@ settings:
   --se-village: @@SVG:pueblo-dia@@;
   --se-sky: linear-gradient(180deg, #CFE4F7, transparent 75%);
   --se-flakes-day: @@SVG:copos-dia@@;
+  --graph-node: var(--se-red);
+  --graph-node-tag: var(--se-pine);
+  --graph-node-attachment: var(--se-gold);
+  --graph-node-unresolved: color-mix(in srgb, var(--se-muted) 45%, transparent);
+  --graph-node-focused: var(--se-bold);
+  --graph-line: color-mix(in srgb, var(--se-muted) 45%, transparent);
   --color-base-00: #FFFDF9;
   --color-base-05: #FBF9F5;
   --color-base-10: #F4F7FA;
@@ -309,6 +325,7 @@ settings:
   --nav-indentation-guide-color: color-mix(in srgb, var(--se-ice) 18%, transparent);
   --indentation-guide-color: color-mix(in srgb, var(--se-ice) 15%, transparent);
   --indentation-guide-color-active: color-mix(in srgb, var(--se-ice) 38%, transparent);
+  --graph-text: var(--se-text);
 }
 
 /* ==========================================================================
@@ -327,7 +344,7 @@ body {
   --callout-border-opacity: 0.3;
   --se-font-text: "SE Lora", "Lora", "Georgia", serif;
   --se-font-display: "SE Cormorant Garamond", "Cormorant Garamond", "Garamond", "Georgia", serif;
-  --se-font-title: "SE Great Vibes", "Great Vibes", var(--se-font-display);
+  --se-font-title: "SE Great Vibes", var(--se-font-display);
   --font-text-theme: var(--se-font-text);
   --font-monospace-theme: "JetBrains Mono", "Cascadia Code", "Consolas", "Menlo", monospace;
   --inline-title-font: var(--se-font-title);
@@ -645,8 +662,10 @@ body:not(.se-no-frames) :is(.modal, .prompt) {
   border-color: transparent;
 }
 
-/* new tab: Santa's sleigh crossing the sky over the decorated village, with falling snow (section 7) */
-.workspace-leaf-content[data-type="empty"] .view-content {
+/* new tab and graph view: Santa's sleigh (new tab only) crossing the sky over the decorated village,
+   with falling snow (section 7) */
+.workspace-leaf-content[data-type="empty"] .view-content,
+body:not(.se-no-graph-scene) .workspace-leaf-content:is([data-type="graph"], [data-type="localgraph"]) .view-content {
   background-image:
     var(--se-village),
     radial-gradient(circle at 12% 18%, var(--se-star-dot) 0 1px, transparent 1.6px),
@@ -707,13 +726,13 @@ body:not(.se-no-sky).theme-light .workspace-leaf-content[data-type="markdown"] .
   background-image: linear-gradient(180deg, color-mix(in srgb, #CFE4F7 70%, transparent), transparent 280px);
 }
 
-.workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content {
+.workspace-leaf-content:is([data-type="markdown"], [data-type="empty"], [data-type="graph"], [data-type="localgraph"]) .view-content {
   position: relative;
   overflow: hidden;
 }
 
-body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content::before,
-body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content::after {
+body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"], [data-type="graph"], [data-type="localgraph"]) .view-content::before,
+body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"], [data-type="graph"], [data-type="localgraph"]) .view-content::after {
   --se-flake: color-mix(in srgb, var(--se-snow) calc(var(--se-snow-opacity) * 100%), transparent);
 
   content: "";
@@ -726,7 +745,7 @@ body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-t
   will-change: transform;
 }
 
-body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content::before {
+body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"], [data-type="graph"], [data-type="localgraph"]) .view-content::before {
   --se-tile: 220px;
   --se-fall: 24s;
 
@@ -739,7 +758,7 @@ body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-t
     radial-gradient(circle at 132px 160px, var(--se-flake) 0 0.8px, transparent 1.4px);
 }
 
-body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content::after {
+body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"], [data-type="graph"], [data-type="localgraph"]) .view-content::after {
   --se-tile: 340px;
   --se-fall: 16s;
 
@@ -751,10 +770,21 @@ body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-t
 }
 
 /* light: white dots vanish on white paper, so Christmas Day snow falls as ice-blue snowflakes */
-body:not(.se-no-snow).theme-light .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content::before,
-body:not(.se-no-snow).theme-light .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content::after {
+body:not(.se-no-snow).theme-light .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"], [data-type="graph"], [data-type="localgraph"]) .view-content::before,
+body:not(.se-no-snow).theme-light .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"], [data-type="graph"], [data-type="localgraph"]) .view-content::after {
   background-image: var(--se-flakes-day);
   opacity: var(--se-snow-opacity);
+}
+
+/* the graph controls stay above the falling snow */
+.workspace-leaf-content:is([data-type="graph"], [data-type="localgraph"]) .graph-controls {
+  z-index: 2;
+}
+
+/* plain graph background: keep the node colours, drop the snow */
+body.se-no-graph-scene .workspace-leaf-content:is([data-type="graph"], [data-type="localgraph"]) .view-content::before,
+body.se-no-graph-scene .workspace-leaf-content:is([data-type="graph"], [data-type="localgraph"]) .view-content::after {
+  content: none;
 }
 
 @keyframes se-snowfall {
@@ -764,8 +794,8 @@ body:not(.se-no-snow).theme-light .workspace-leaf-content:is([data-type="markdow
 }
 
 @media (prefers-reduced-motion: reduce) {
-  body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content::before,
-  body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content::after {
+  body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"], [data-type="graph"], [data-type="localgraph"]) .view-content::before,
+  body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"], [data-type="graph"], [data-type="localgraph"]) .view-content::after {
     content: none;
   }
 }
@@ -797,8 +827,8 @@ body:not(.se-no-snow).theme-light .workspace-leaf-content:is([data-type="markdow
     text-shadow: none;
   }
 
-  body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content::before,
-  body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content::after {
+  body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"], [data-type="graph"], [data-type="localgraph"]) .view-content::before,
+  body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"], [data-type="graph"], [data-type="localgraph"]) .view-content::after {
     content: none;
   }
 }

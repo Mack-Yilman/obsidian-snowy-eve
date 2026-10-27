@@ -12,6 +12,8 @@ The new tab: Santa's sleigh over the decorated village, with a lit tree in the f
 
 ![Snowy Eve — new tab, light mode](docs/new-tab-light.png)
 
+![Snowy Eve — graph view, dark mode](docs/graph.png)
+
 ## Features
 
 - **Dark and light modes** — *Christmas Eve* (midnight blue sky with faint stars behind notes, snow-white text, golden lights, red baubles) and *Christmas Day* (a sunny morning: clear blue sky, warm white paper, red, pine green and gold). Text contrast meets WCAG AA in both, headings included.
@@ -22,6 +24,8 @@ The new tab: Santa's sleigh over the decorated village, with a lit tree in the f
 - **Falling snow** over your notes and the new tab (ice-blue snowflakes by day); it never catches clicks and hides itself when your system asks to reduce motion.
 - **Frost frames** — a thin double line with snowflake corners around sidebar panels and dialogs.
 - **New tab** with Santa's sleigh crossing the sky over the decorated village, with falling snow.
+- **Graph view** — notes glow like the bulbs of a string of lights (gold by night, red by day; tags and attachments in their own Christmas colours) over the sky, the decorated village and falling snow, in the global and the local graph.
+- **Dates in note titles** — slashes (`/`, `⁄`, `∕`) are drawn in the serif face, so dates like `24∕10∕26` stay clean in the calligraphic title.
 
 ## Settings
 
@@ -34,6 +38,7 @@ Install the [Style Settings](https://github.com/mgmeyers/obsidian-style-settings
 | Disable the sky behind notes (stars by night, morning glow by day) | Off |
 | Disable the decorated village under the file explorer | Off |
 | Disable the Christmas tree in the file explorer | Off |
+| Plain graph background (keep the node colours only) | Off |
 | Emblem under the note title | Santa's sleigh |
 | Folder toggle in the file explorer | Snowflake |
 | Plain list bullets | Off |
