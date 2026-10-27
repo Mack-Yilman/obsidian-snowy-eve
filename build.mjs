@@ -1,5 +1,5 @@
 // Genera theme.css desde src/theme.src.css incrustando las fuentes en base64 y los adornos SVG como texto.
-//   /*@@FONTS@@*/          → @font-face de cada fonts/*.woff2 (familia, peso y estilo en fonts/fonts.json)
+//   /*@@FONTS@@*/          → @font-face de cada fonts/*.woff2 (familia, peso, estilo y unicode-range en fonts/fonts.json)
 //   @@SVG:nombre@@         → src/ornaments/nombre.svg tal cual (para mask-image)
 //   @@SVG:nombre:#rrggbb@@ → el mismo SVG con el negro cambiado por ese color (para background-image)
 //   @@EMOJI:🎄@@           → un SVG con ese emoji (para adornar encabezados en la vista previa en vivo)
@@ -21,6 +21,7 @@ const fontFaces = Object.entries(fonts).map(([file, f]) => [
   `  font-family: "${f.family}";`,
   `  font-style: ${f.style ?? "normal"};`,
   `  font-weight: ${f.weight ?? 400};`,
+  ...(f.unicodeRange ? [`  unicode-range: ${f.unicodeRange};`] : []),
   "  font-display: swap;",
   `  src: url("data:font/woff2;base64,${b64(read(`fonts/${file}`))}") format("woff2");`,
   "}",
