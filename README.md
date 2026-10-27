@@ -6,7 +6,7 @@ A cozy Christmas theme for [Obsidian](https://obsidian.md): Christmas Eve by nig
 
 ![Snowy Eve — Christmas Day (light mode)](docs/light.png)
 
-The new tab: Santa's sleigh over the decorated village, with a lit tree in the file explorer.
+The new tab: Santa's sleigh over the decorated village, with a lit tree in the file explorer — snow by night, twinkling lights by day.
 
 ![Snowy Eve — new tab, dark mode](docs/new-tab-dark.png)
 
@@ -23,8 +23,8 @@ The new tab: Santa's sleigh over the decorated village, with a lit tree in the f
 - **File explorer** — larger names and icons, and each top-level folder gets its own Christmas colour in order (red, gold, green, ice blue, plum, copper), shared by its subfolders. A snowflake replaces the folder arrow (rotates when opened), and a lit Christmas tree with presents stands over a village decorated with strings of lights, wreaths and a snowman (night houses with glowing windows; coloured houses with snowy roofs by day).
 - **Falling snow by night, twinkling lights by day** over your notes, the new tab and the graph. By day, small gold, red, green and blue fairy lights blink in three groups out of step, like the lights on a tree, and fade to a third behind the text column so they never get in the way of reading. Neither ever catches clicks, and both hide themselves when your system asks to reduce motion.
 - **Frost frames** — a thin double line with snowflake corners around sidebar panels and dialogs.
-- **New tab** with Santa's sleigh crossing the sky over the decorated village, with falling snow.
-- **Graph view** — notes glow like the bulbs of a string of lights (gold by night, red by day; tags and attachments in their own Christmas colours) over the sky, the decorated village and falling snow, in the global and the local graph.
+- **New tab** with Santa's sleigh crossing the sky over the decorated village, with falling snow by night and twinkling lights by day.
+- **Graph view** — notes glow like the bulbs of a string of lights (gold by night, red by day; tags and attachments in their own Christmas colours) over the sky, the decorated village and falling snow (twinkling lights by day), in the global and the local graph.
 - **Dates in note titles and headings** use lining figures, so the digits of a date like `24∕10∕26` line up.
 
 ## Settings
@@ -65,7 +65,7 @@ The accent color (buttons, selection) follows **Settings → Appearance → Acce
 
 ```bash
 npm install
-node build.mjs          # builds theme.css with fonts and ornaments embedded as base64
+node build.mjs          # builds theme.css with the fonts (base64) and the SVG ornaments embedded
 npm run lint            # Obsidian's official stylelint rules
 node tools/contraste.mjs  # checks the palette contrast
 ```
