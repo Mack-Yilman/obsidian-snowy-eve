@@ -2,9 +2,15 @@
 
 A cozy Christmas theme for [Obsidian](https://obsidian.md): Christmas Eve by night — a midnight blue sky with faint stars, golden lights and red baubles — and Christmas Day by morning — a clear blue sky, warm white paper and coloured houses. Classic serif and script typography, festive headings, Santa's sleigh under every note title, a lit Christmas tree over a decorated village, snowflake folder toggles and gently falling snow.
 
-![Snowy Eve — dark mode](docs/dark.png)
+![Snowy Eve — Christmas Eve (dark mode)](docs/dark.png)
 
-![Snowy Eve — light mode](docs/light.png)
+![Snowy Eve — Christmas Day (light mode)](docs/light.png)
+
+The new tab: Santa's sleigh over the decorated village, with a lit tree in the file explorer.
+
+![Snowy Eve — new tab, dark mode](docs/new-tab-dark.png)
+
+![Snowy Eve — new tab, light mode](docs/new-tab-light.png)
 
 ## Features
 
