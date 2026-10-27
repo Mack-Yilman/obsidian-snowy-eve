@@ -170,6 +170,8 @@ settings:
   --se-star: @@SVG:estrella:#E9B95A@@;
   --se-frame: @@SVG:marco:#7F97BC@@;
   --se-village: @@SVG:pueblo-noche@@;
+  --se-ground: #C9D6EA;
+  --se-ground-edge: #E8EEF7;
   --se-f1: #FF7A7F;
   --se-f2: #F2C46A;
   --se-f3: #7FD3A0;
@@ -230,6 +232,8 @@ settings:
   --se-star: @@SVG:estrella:#B88A2A@@;
   --se-frame: @@SVG:marco:#8FB0D4@@;
   --se-village: @@SVG:pueblo-dia@@;
+  --se-ground: #FFF;
+  --se-ground-edge: #B8C9DD;
   --se-f1: #B3202A;
   --se-f2: #8A5F0E;
   --se-f3: #1E7048;
@@ -632,14 +636,35 @@ body:not(.se-plain-folders) .nav-files-container > div > .nav-folder .nav-folder
   color: var(--se-folder);
 }
 
-/* the decorated village sits at the foot of the panel and the lit tree stands over it;
-   padding keeps the last file clear of both. The explorer has no .view-content:
-   the file list hangs straight from the leaf */
-body:not(.se-no-village) .workspace-leaf-content[data-type="file-explorer"] {
+/* the decorated village sits at the foot of the panel and the lit tree stands in a snowy clearing at its right end.
+   Everything is drawn on the leaf (the explorer has no .view-content) so the tree and the houses share one ground:
+   two copies of the village end just left of the tree (one village is 384px wide at 64px high) and a strip of snow
+   runs under the whole width. Padding on the list keeps the last file clear of the scene */
+body:not(.se-no-village, .se-no-tree) .workspace-leaf-content[data-type="file-explorer"] {
+  background-image:
+    var(--se-tree),
+    var(--se-village),
+    var(--se-village),
+    linear-gradient(to top, var(--se-ground) 0 5px, var(--se-ground-edge) 5px 6px, transparent 6px);
+  background-position: right 22px bottom 3px, right 105px bottom, right 489px bottom, left bottom;
+  background-size: auto 124px, auto 64px, auto 64px, 100% 6px;
+  background-repeat: no-repeat;
+}
+
+body.se-no-tree:not(.se-no-village) .workspace-leaf-content[data-type="file-explorer"] {
   background-image: var(--se-village);
   background-position: center bottom;
   background-size: auto 64px;
   background-repeat: repeat-x;
+}
+
+body.se-no-village:not(.se-no-tree) .workspace-leaf-content[data-type="file-explorer"] {
+  background-image:
+    var(--se-tree),
+    linear-gradient(to top, var(--se-ground) 0 5px, var(--se-ground-edge) 5px 6px, transparent 6px);
+  background-position: right 22px bottom 3px, left bottom;
+  background-size: auto 124px, 100% 6px;
+  background-repeat: no-repeat;
 }
 
 body:not(.se-no-village) .workspace-leaf-content[data-type="file-explorer"] .nav-files-container {
@@ -648,10 +673,6 @@ body:not(.se-no-village) .workspace-leaf-content[data-type="file-explorer"] .nav
 
 body:not(.se-no-tree) .workspace-leaf-content[data-type="file-explorer"] .nav-files-container {
   padding-bottom: 150px;
-  background-image: var(--se-tree);
-  background-position: right 22px bottom 16px;
-  background-size: auto 124px;
-  background-repeat: no-repeat;
 }
 
 /* ==========================================================================
