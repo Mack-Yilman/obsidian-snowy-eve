@@ -7,7 +7,7 @@ their full texts are in `fonts/`.
 |---|---|---|---|
 | Lora | The Lora Project Authors | SIL Open Font License 1.1 | `fonts/OFL-lora.txt` |
 | Cormorant Garamond | The Cormorant Project Authors (Christian Thalmann) | SIL Open Font License 1.1 | `fonts/OFL-cormorantgaramond.txt` |
-| Great Vibes | The Great Vibes Pro Project Authors (Robert Leuschke, TypeSETit) | SIL Open Font License 1.1 | `fonts/OFL-greatvibes.txt` |
+| Cinzel Decorative | Natanael Gama | SIL Open Font License 1.1 (Reserved Font Name "Cinzel") | `fonts/OFL-cinzeldecorative.txt` |
 
 The fonts are the Latin subsets distributed by [Fontsource](https://fontsource.org/).
 The ornaments were drawn for this theme.

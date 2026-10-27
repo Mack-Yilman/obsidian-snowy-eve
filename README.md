@@ -1,6 +1,6 @@
 # Snowy Eve ❄️
 
-A cozy Christmas theme for [Obsidian](https://obsidian.md): Christmas Eve by night — a midnight blue sky with faint stars, golden lights and red baubles — and Christmas Day by morning — a clear blue sky, warm white paper and coloured houses. Classic serif and script typography, festive headings, Santa's sleigh under every note title, a lit Christmas tree over a decorated village, snowflake folder toggles and gently falling snow.
+A cozy Christmas theme for [Obsidian](https://obsidian.md): Christmas Eve by night — a midnight blue sky with faint stars, golden lights and red baubles — and Christmas Day by morning — a warm cabin morning of ivory paper and candle-lit cream, with fairy lights twinkling over coloured houses. Classic serif typography with decorative Christmas-card capitals for the note title, festive headings, Santa's sleigh under every note title, a lit Christmas tree over a decorated village, snowflake folder toggles, gently falling snow by night and twinkling lights by day.
 
 ![Snowy Eve — Christmas Eve (dark mode)](docs/dark.png)
 
@@ -16,16 +16,16 @@ The new tab: Santa's sleigh over the decorated village, with a lit tree in the f
 
 ## Features
 
-- **Dark and light modes** — *Christmas Eve* (midnight blue sky with faint stars behind notes, snow-white text, golden lights, red baubles) and *Christmas Day* (a sunny morning: clear blue sky, warm white paper, red, pine green and gold). Text contrast meets WCAG AA in both, headings included.
-- **Typography** — Lora for reading, bold Cormorant Garamond for headings, and the calligraphic Great Vibes for the note title, all embedded (no network requests). Option to use Cormorant Garamond for note titles as well.
-- **Festive headings** — each level has its own Christmas colour: gold, coral red, holly green, ice blue, frost silver and copper by night (with a soft glow on H1–H3); red, pine green, gold, blue, plum and copper by day. H2 carries a red-to-gold ribbon. Bold, italics, highlights and inline code are tinted to match.
+- **Dark and light modes** — *Christmas Eve* (midnight blue sky with faint stars behind notes, snow-white text, golden lights, red baubles) and *Christmas Day* (a warm cabin morning: ivory paper, candle-lit cream, the golden glow of the village windows, espresso text, red, pine green and gold). Text contrast meets WCAG AA in both, headings included.
+- **Typography** — Lora for reading, bold Cormorant Garamond for headings, and the decorative Christmas-card capitals of Cinzel Decorative for the note title (easy to read even in all caps), all embedded (no network requests). Option to use Cormorant Garamond for note titles as well.
+- **Festive headings** — each level has its own Christmas colour: gold, coral red, holly green, ice blue, frost silver and copper by night (with a soft glow on H1–H3); red, pine green, gold, house blue, plum and copper by day. H2 carries a red-to-gold ribbon. Bold, italics, highlights and inline code are tinted to match.
 - **Ornaments** — Santa and his reindeer sleigh under each note title (or a golden star), a gold rule with a star under H1 and on dividers, red baubles (golden in sublists) as bullets, a bauble on H3, and checked tasks with a golden star over a red bauble.
 - **File explorer** — larger names and icons, and each top-level folder gets its own Christmas colour in order (red, gold, green, ice blue, plum, copper), shared by its subfolders. A snowflake replaces the folder arrow (rotates when opened), and a lit Christmas tree with presents stands over a village decorated with strings of lights, wreaths and a snowman (night houses with glowing windows; coloured houses with snowy roofs by day).
-- **Falling snow** over your notes and the new tab (ice-blue snowflakes by day); it never catches clicks and hides itself when your system asks to reduce motion.
+- **Falling snow by night, twinkling lights by day** over your notes, the new tab and the graph. By day, small gold, red, green and blue fairy lights blink in three groups out of step, like the lights on a tree. Neither ever catches clicks, and both hide themselves when your system asks to reduce motion.
 - **Frost frames** — a thin double line with snowflake corners around sidebar panels and dialogs.
 - **New tab** with Santa's sleigh crossing the sky over the decorated village, with falling snow.
 - **Graph view** — notes glow like the bulbs of a string of lights (gold by night, red by day; tags and attachments in their own Christmas colours) over the sky, the decorated village and falling snow, in the global and the local graph.
-- **Dates in note titles** — slashes (`/`, `⁄`, `∕`) are drawn in the serif face, so dates like `24∕10∕26` stay clean in the calligraphic title; headings use lining figures, so the digits of a date line up.
+- **Dates in note titles and headings** use lining figures, so the digits of a date like `24∕10∕26` line up.
 
 ## Settings
 
@@ -33,8 +33,8 @@ Install the [Style Settings](https://github.com/mgmeyers/obsidian-style-settings
 
 | Option | Default |
 |---|---|
-| Disable falling snow | Off |
-| Snow intensity | 0.6 |
+| Disable falling snow and twinkling lights | Off |
+| Snow and lights intensity | 0.6 |
 | Disable the sky behind notes (stars by night, morning glow by day) | Off |
 | Disable the decorated village under the file explorer | Off |
 | Disable the Christmas tree in the file explorer | Off |
@@ -72,7 +72,7 @@ node tools/contraste.mjs  # checks the palette contrast
 
 ## Español
 
-Tema navideño para Obsidian: de noche, la espera de Nochebuena (cielo azul medianoche con estrellas, luces doradas y esferas rojas); de día, la mañana de Navidad (cielo azul despejado, papel blanco cálido y casas de colores). Encabezados con un color navideño por nivel, trineo de Santa bajo el título de cada nota, un árbol iluminado sobre un pueblo adornado con luces, copos de nieve en las carpetas y nieve que cae suavemente. Las opciones se configuran con el plugin Style Settings.
+Tema navideño para Obsidian: de noche, la espera de Nochebuena (cielo azul medianoche con estrellas, luces doradas y esferas rojas); de día, la mañana de Navidad en una cabaña cálida (papel marfil, crema a la luz de las velas y casas de colores). Título en mayúsculas de tarjeta navideña (Cinzel Decorative), encabezados con un color navideño por nivel, trineo de Santa bajo el título de cada nota, un árbol iluminado sobre un pueblo adornado con luces, copos de nieve en las carpetas, nieve que cae suavemente de noche y luces que titilan intercaladas de día. Las opciones se configuran con el plugin Style Settings.
 
 ## Credits
 
