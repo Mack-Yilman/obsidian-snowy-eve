@@ -1,14 +1,14 @@
 /* ==========================================================================
    Snowy Eve — a snowy Christmas Eve theme for Obsidian
    A midnight-blue sky over a snowed-in village, warm golden lights and red baubles;
-   a bright snowy morning by day.
+   a warm Christmas morning with twinkling lights by day.
 
    Author: Mack Chirinos · MIT License
 
    Fonts (embedded):
      Lora — The Lora Project Authors (SIL OFL 1.1)
      Cormorant Garamond — The Cormorant Project Authors (SIL OFL 1.1)
-     Great Vibes — The Great Vibes Pro Project Authors (SIL OFL 1.1)
+     Cinzel Decorative — Natanael Gama (SIL OFL 1.1)
    Ornaments (Santa's sleigh, village, star, snowflake, lantern, bauble) drawn for this theme.
 
    Built by build.mjs from src/theme.src.css — edit the source, not theme.css.
@@ -25,11 +25,11 @@ settings:
     level: 2
     collapsed: false
 -   id: se-no-snow
-    title: Disable falling snow
-    description: Snow is also hidden when your system asks to reduce motion.
+    title: Disable falling snow and twinkling lights
+    description: Snow falls at night (dark mode) and fairy lights twinkle by day (light mode). Both are also hidden when your system asks to reduce motion.
     type: class-toggle
 -   id: se-snow-opacity
-    title: Snow intensity
+    title: Snow and lights intensity
     type: variable-number-slider
     default: 0.6
     min: 0.1
@@ -98,7 +98,7 @@ settings:
     collapsed: false
 -   id: se-title-serif
     title: Serif note title
-    description: Uses Cormorant Garamond for the note title instead of the Great Vibes script.
+    description: Uses Cormorant Garamond for the note title instead of the Cinzel Decorative capitals.
     type: class-toggle
 -   id: se-h-colors
     title: Colors
@@ -199,26 +199,25 @@ settings:
   --color-base-100: #E8EEF7;
 }
 
-/* light: Christmas Day — a sunny morning, a clear blue sky and coloured houses */
+/* light: Christmas Day — a warm cabin morning: ivory paper, candle-lit cream and the glow of the village windows */
 .theme-light {
-  --se-canvas: #E4EFF9;
-  --se-paper: #FFFDF9;
-  --se-line: #D2DEEB;
-  --se-text: #1E2B3F;
-  --se-muted: #4A5B78;
-  --se-faint: #66778F;
+  --se-canvas: #F3E9DA;
+  --se-paper: #FFFAF2;
+  --se-line: #E4D6C1;
+  --se-text: #2B211C;
+  --se-muted: #6A5646;
+  --se-faint: #85705D;
   --se-red: #B3202A;
   --se-ice: #1F5FA8;
   --se-gold: #8A5F0E;
-  --se-pine: #1E7048;
-  --se-snow: #7FA6CF;
+  --se-pine: #1E6B45;
   --se-star-dot: transparent;
-  --se-code-bg: #F3F6FA;
+  --se-code-bg: #F7EFE3;
   --se-check-mark: #FFE29A;
   --se-h1: #B3202A;
-  --se-h2: #1E7048;
+  --se-h2: #1E6B45;
   --se-h3: #8A5F0E;
-  --se-h4: #1F5FA8;
+  --se-h4: #3B5E8C;
   --se-h5: #7B2D6B;
   --se-h6: #9A4A1E;
   --se-bold: #8E1B24;
@@ -230,36 +229,35 @@ settings:
   --accent-l: 41%;
   --se-emblem-sleigh: @@SVG:trineo-luz:#C99A2E@@, @@SVG:trineo:#B3202A@@;
   --se-star: @@SVG:estrella:#B88A2A@@;
-  --se-frame: @@SVG:marco:#8FB0D4@@;
+  --se-frame: @@SVG:marco:#C9A66B@@;
   --se-village: @@SVG:pueblo-dia@@;
   --se-ground: #FFF;
   --se-ground-edge: #B8C9DD;
   --se-f1: #B3202A;
   --se-f2: #8A5F0E;
-  --se-f3: #1E7048;
+  --se-f3: #1E6B45;
   --se-f4: #1F5FA8;
   --se-f5: #7B2D6B;
   --se-f6: #9A4A1E;
-  --se-sky: linear-gradient(180deg, #CFE4F7, transparent 75%);
-  --se-flakes-day: @@SVG:copos-dia@@;
+  --se-sky: linear-gradient(180deg, #FBE6BC, transparent 75%);
   --graph-node: var(--se-red);
   --graph-node-tag: var(--se-pine);
   --graph-node-attachment: var(--se-gold);
   --graph-node-unresolved: color-mix(in srgb, var(--se-muted) 45%, transparent);
   --graph-node-focused: var(--se-bold);
   --graph-line: color-mix(in srgb, var(--se-muted) 45%, transparent);
-  --color-base-00: #FFFDF9;
-  --color-base-05: #FBF9F5;
-  --color-base-10: #F4F7FA;
-  --color-base-20: #E4EFF9;
-  --color-base-25: #DAE7F4;
-  --color-base-30: #D2DEEB;
-  --color-base-35: #C3D2E3;
-  --color-base-40: #AABDD3;
-  --color-base-50: #8A9CB4;
-  --color-base-60: #66778F;
-  --color-base-70: #4A5B78;
-  --color-base-100: #1E2B3F;
+  --color-base-00: #FFFAF2;
+  --color-base-05: #FBF5EC;
+  --color-base-10: #F7EFE3;
+  --color-base-20: #F3E9DA;
+  --color-base-25: #EDE1CF;
+  --color-base-30: #E4D6C1;
+  --color-base-35: #D8C7AE;
+  --color-base-40: #C4AF93;
+  --color-base-50: #A08B72;
+  --color-base-60: #85705D;
+  --color-base-70: #6A5646;
+  --color-base-100: #2B211C;
 }
 
 .theme-dark,
@@ -348,6 +346,19 @@ settings:
   --graph-text: var(--se-text);
 }
 
+/* light: hover, selection and focus take the warm gold of the cabin instead of ice blue */
+.theme-light {
+  --background-modifier-border-hover: color-mix(in srgb, var(--se-gold) 35%, var(--se-line));
+  --background-modifier-border-focus: color-mix(in srgb, var(--se-gold) 55%, transparent);
+  --background-modifier-hover: color-mix(in srgb, var(--se-gold) 10%, transparent);
+  --background-modifier-active-hover: color-mix(in srgb, var(--se-gold) 16%, transparent);
+  --text-selection: color-mix(in srgb, var(--se-gold) 22%, transparent);
+  --nav-item-background-active: color-mix(in srgb, var(--se-gold) 15%, transparent);
+  --nav-indentation-guide-color: color-mix(in srgb, var(--se-gold) 20%, transparent);
+  --indentation-guide-color: color-mix(in srgb, var(--se-gold) 18%, transparent);
+  --indentation-guide-color-active: color-mix(in srgb, var(--se-gold) 40%, transparent);
+}
+
 /* ==========================================================================
    2. Typography
    ========================================================================== */
@@ -365,12 +376,12 @@ body {
   --se-font-text: "SE Lora", "Lora", "Georgia", serif;
   --se-font-display: "SE Cormorant Garamond", "SE Lora", "Cormorant Garamond", "Garamond", "Georgia", serif;
   --nav-item-size: 14.5px;
-  --se-font-title: "SE Great Vibes", var(--se-font-display);
+  --se-font-title: "SE Cinzel Decorative", var(--se-font-display);
   --font-text-theme: var(--se-font-text);
   --font-monospace-theme: "JetBrains Mono", "Cascadia Code", "Consolas", "Menlo", monospace;
   --inline-title-font: var(--se-font-title);
-  --inline-title-size: 3.1em;
-  --inline-title-weight: 400;
+  --inline-title-size: 2.3em;
+  --inline-title-weight: 700;
   --inline-title-line-height: 1.25;
   --h1-font: var(--se-font-display);
   --h2-font: var(--se-font-display);
@@ -761,7 +772,8 @@ body:not(.se-no-graph-scene) .workspace-leaf-content:is([data-type="graph"], [da
   background-size: auto 4.6rem;
   background-repeat: no-repeat;
   font-family: var(--se-font-title);
-  font-size: 3em;
+  font-size: 2.3em;
+  font-weight: 700;
   line-height: 1.2;
   color: var(--se-gold);
 }
@@ -788,9 +800,9 @@ body:not(.se-no-sky).theme-dark .workspace-leaf-content[data-type="markdown"] .v
   background-repeat: repeat, repeat, repeat, repeat, no-repeat;
 }
 
-/* light: a clear morning sky glowing at the top of the note */
+/* light: the warm glow of the village windows at the top of the note */
 body:not(.se-no-sky).theme-light .workspace-leaf-content[data-type="markdown"] .view-content {
-  background-image: linear-gradient(180deg, color-mix(in srgb, #CFE4F7 70%, transparent), transparent 280px);
+  background-image: linear-gradient(180deg, color-mix(in srgb, #FBE6BC 70%, transparent), transparent 280px);
 }
 
 .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"], [data-type="graph"], [data-type="localgraph"]) .view-content {
@@ -836,11 +848,35 @@ body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-t
     radial-gradient(circle at 300px 300px, var(--se-flake) 0 2.2px, transparent 3px);
 }
 
-/* light: white dots vanish on white paper, so Christmas Day snow falls as ice-blue snowflakes */
+/* light: white snow vanishes on ivory paper, so on Christmas Day small fairy lights twinkle instead.
+   They stay in place; like the lights on a tree, each one belongs to one of three groups (--se-on-a/b/c) that blink
+   on and off at their own pace, so some lights are always lit while others rest */
 body:not(.se-no-snow).theme-light .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"], [data-type="graph"], [data-type="localgraph"]) .view-content::before,
 body:not(.se-no-snow).theme-light .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"], [data-type="graph"], [data-type="localgraph"]) .view-content::after {
-  background-image: var(--se-flakes-day);
-  opacity: var(--se-snow-opacity);
+  /* lights read fainter than snow on a dark sky: the default intensity (0.6) shows them at 0.9 */
+  opacity: min(1, var(--se-snow-opacity) * 1.5);
+  animation:
+    se-blink-a 2.6s steps(4) infinite,
+    se-blink-b 3.3s steps(4) -1.1s infinite,
+    se-blink-c 4.1s steps(4) -2.6s infinite;
+}
+
+body:not(.se-no-snow).theme-light .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"], [data-type="graph"], [data-type="localgraph"]) .view-content::before {
+  background-image:
+    radial-gradient(circle at 20px 30px, color-mix(in srgb, var(--se-gold) calc(var(--se-on-a) * 100%), transparent) 0 1.7px, color-mix(in srgb, var(--se-gold) calc(var(--se-on-a) * 30%), transparent) 2.5px, transparent 5px),
+    radial-gradient(circle at 92px 112px, color-mix(in srgb, var(--se-red) calc(var(--se-on-b) * 100%), transparent) 0 1.5px, color-mix(in srgb, var(--se-red) calc(var(--se-on-b) * 30%), transparent) 2.3px, transparent 4.4px),
+    radial-gradient(circle at 160px 48px, color-mix(in srgb, var(--se-pine) calc(var(--se-on-c) * 100%), transparent) 0 1.5px, color-mix(in srgb, var(--se-pine) calc(var(--se-on-c) * 30%), transparent) 2.3px, transparent 4.4px),
+    radial-gradient(circle at 202px 178px, color-mix(in srgb, var(--se-gold) calc(var(--se-on-b) * 100%), transparent) 0 1.5px, color-mix(in srgb, var(--se-gold) calc(var(--se-on-b) * 30%), transparent) 2.3px, transparent 4.4px),
+    radial-gradient(circle at 58px 190px, color-mix(in srgb, var(--se-ice) calc(var(--se-on-a) * 100%), transparent) 0 1.3px, color-mix(in srgb, var(--se-ice) calc(var(--se-on-a) * 30%), transparent) 2.1px, transparent 3.8px),
+    radial-gradient(circle at 132px 160px, color-mix(in srgb, var(--se-red) calc(var(--se-on-c) * 100%), transparent) 0 1.3px, color-mix(in srgb, var(--se-red) calc(var(--se-on-c) * 30%), transparent) 2.1px, transparent 3.8px);
+}
+
+body:not(.se-no-snow).theme-light .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"], [data-type="graph"], [data-type="localgraph"]) .view-content::after {
+  background-image:
+    radial-gradient(circle at 50px 80px, color-mix(in srgb, var(--se-red) calc(var(--se-on-a) * 100%), transparent) 0 1.9px, color-mix(in srgb, var(--se-red) calc(var(--se-on-a) * 30%), transparent) 2.7px, transparent 5.7px),
+    radial-gradient(circle at 250px 40px, color-mix(in srgb, var(--se-gold) calc(var(--se-on-c) * 100%), transparent) 0 2.1px, color-mix(in srgb, var(--se-gold) calc(var(--se-on-c) * 30%), transparent) 2.9px, transparent 6.3px),
+    radial-gradient(circle at 170px 230px, color-mix(in srgb, var(--se-pine) calc(var(--se-on-b) * 100%), transparent) 0 1.9px, color-mix(in srgb, var(--se-pine) calc(var(--se-on-b) * 30%), transparent) 2.7px, transparent 5.7px),
+    radial-gradient(circle at 300px 300px, color-mix(in srgb, var(--se-gold) calc(var(--se-on-a) * 100%), transparent) 0 1.9px, color-mix(in srgb, var(--se-gold) calc(var(--se-on-a) * 30%), transparent) 2.7px, transparent 5.7px);
 }
 
 /* the graph controls stay above the falling snow */
@@ -858,6 +894,42 @@ body.se-no-graph-scene .workspace-leaf-content:is([data-type="graph"], [data-typ
   to {
     transform: translateY(var(--se-tile));
   }
+}
+
+/* registered so they can be animated: how lit each group of fairy lights is (1 on, 0.1 resting) */
+@property --se-on-a {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 1;
+}
+
+@property --se-on-b {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 1;
+}
+
+@property --se-on-c {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 1;
+}
+
+/* each group stays lit, dims, rests and comes back; steps(4) repaints the gradients only on those few steps
+   (a smooth fade would repaint them every frame), and the different lengths keep the groups out of step */
+@keyframes se-blink-a {
+  0%, 55%, 100% { --se-on-a: 1; }
+  65%, 90% { --se-on-a: 0.1; }
+}
+
+@keyframes se-blink-b {
+  0%, 55%, 100% { --se-on-b: 1; }
+  65%, 90% { --se-on-b: 0.1; }
+}
+
+@keyframes se-blink-c {
+  0%, 55%, 100% { --se-on-c: 1; }
+  65%, 90% { --se-on-c: 0.1; }
 }
 
 @media (prefers-reduced-motion: reduce) {
