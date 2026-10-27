@@ -45,6 +45,10 @@ settings:
 -   id: se-no-tree
     title: Disable the Christmas tree in the file explorer
     type: class-toggle
+-   id: se-plain-folders
+    title: Single-colour folders
+    description: Gold snowflakes for every folder instead of a different Christmas colour per top-level folder.
+    type: class-toggle
 -   id: se-no-graph-scene
     title: Plain graph background
     description: Keeps the Christmas node colours but removes the sky, village and snow behind the graph.
@@ -166,6 +170,12 @@ settings:
   --se-star: @@SVG:estrella:#E9B95A@@;
   --se-frame: @@SVG:marco:#7F97BC@@;
   --se-village: @@SVG:pueblo-noche@@;
+  --se-f1: #FF7A7F;
+  --se-f2: #F2C46A;
+  --se-f3: #7FD3A0;
+  --se-f4: #8EC3F0;
+  --se-f5: #D6A6F2;
+  --se-f6: #E8A27A;
   --graph-node: var(--se-gold);
   --graph-node-tag: var(--se-h2);
   --graph-node-attachment: var(--se-h3);
@@ -220,6 +230,12 @@ settings:
   --se-star: @@SVG:estrella:#B88A2A@@;
   --se-frame: @@SVG:marco:#8FB0D4@@;
   --se-village: @@SVG:pueblo-dia@@;
+  --se-f1: #B3202A;
+  --se-f2: #8A5F0E;
+  --se-f3: #1E7048;
+  --se-f4: #1F5FA8;
+  --se-f5: #7B2D6B;
+  --se-f6: #9A4A1E;
   --se-sky: linear-gradient(180deg, #CFE4F7, transparent 75%);
   --se-flakes-day: @@SVG:copos-dia@@;
   --graph-node: var(--se-red);
@@ -343,7 +359,8 @@ body {
   --callout-border-width: 1px;
   --callout-border-opacity: 0.3;
   --se-font-text: "SE Lora", "Lora", "Georgia", serif;
-  --se-font-display: "SE Cormorant Garamond", "Cormorant Garamond", "Garamond", "Georgia", serif;
+  --se-font-display: "SE Cormorant Garamond", "SE Lora", "Cormorant Garamond", "Garamond", "Georgia", serif;
+  --nav-item-size: 14.5px;
   --se-font-title: "SE Great Vibes", var(--se-font-display);
   --font-text-theme: var(--se-font-text);
   --font-monospace-theme: "JetBrains Mono", "Cascadia Code", "Consolas", "Menlo", monospace;
@@ -370,9 +387,20 @@ body {
   --h5-weight: 700;
   --h6-weight: 700;
 
+  /* Obsidian sets font-variant from these on every heading, which drops the body's lining figures:
+     Cormorant would fall back to old-style digits of uneven height (24∕10∕26) */
+  --h1-variant: lining-nums;
+  --h2-variant: lining-nums;
+  --h3-variant: lining-nums;
+  --h4-variant: lining-nums;
+  --h5-variant: lining-nums;
+  --h6-variant: lining-nums;
+  --inline-title-variant: lining-nums;
+
   font-variant-numeric: lining-nums;
   font-kerning: normal;
 }
+
 
 body.se-title-serif {
   --se-font-title: var(--se-font-display);
@@ -553,7 +581,7 @@ body:not(.se-no-baubles) .list-bullet::after {
 
 body:not(.se-folder-native) .nav-folder-title > .collapse-icon {
   position: relative;
-  width: 18px;
+  width: 20px;
   margin-inline-end: 4px;
   opacity: 1;
 }
@@ -566,10 +594,10 @@ body:not(.se-folder-native) .nav-folder-title > .collapse-icon::after {
   content: "";
   position: absolute;
   inset: 0;
-  width: 14px;
-  height: 14px;
+  width: 17px;
+  height: 17px;
   margin: auto;
-  background-color: var(--se-gold);
+  background-color: var(--se-folder, var(--se-gold));
   mask-image: @@SVG:copo@@;
   mask-size: contain;
   mask-position: center;
@@ -578,12 +606,30 @@ body:not(.se-folder-native) .nav-folder-title > .collapse-icon::after {
 }
 
 body:not(.se-folder-native) .nav-folder-title > .collapse-icon.is-collapsed::after {
-  background-color: var(--se-muted);
+  background-color: var(--se-folder-closed, var(--se-muted));
   transform: rotate(-30deg) scale(0.9);
 }
 
 body:not(.se-folder-native) .nav-folder-title:hover > .collapse-icon::after {
-  background-color: var(--se-gold);
+  background-color: var(--se-folder, var(--se-gold));
+}
+
+/* each top-level folder takes the next Christmas colour (name, snowflake and indentation guide);
+   subfolders inherit it, files keep the text colour. "of .nav-folder" skips the empty div the tree starts with */
+body:not(.se-plain-folders) .nav-files-container > div > .nav-folder:nth-child(6n+1 of .nav-folder) { --se-folder: var(--se-f1); }
+body:not(.se-plain-folders) .nav-files-container > div > .nav-folder:nth-child(6n+2 of .nav-folder) { --se-folder: var(--se-f2); }
+body:not(.se-plain-folders) .nav-files-container > div > .nav-folder:nth-child(6n+3 of .nav-folder) { --se-folder: var(--se-f3); }
+body:not(.se-plain-folders) .nav-files-container > div > .nav-folder:nth-child(6n+4 of .nav-folder) { --se-folder: var(--se-f4); }
+body:not(.se-plain-folders) .nav-files-container > div > .nav-folder:nth-child(6n+5 of .nav-folder) { --se-folder: var(--se-f5); }
+body:not(.se-plain-folders) .nav-files-container > div > .nav-folder:nth-child(6n+6 of .nav-folder) { --se-folder: var(--se-f6); }
+
+body:not(.se-plain-folders) .nav-files-container > div > .nav-folder {
+  --se-folder-closed: color-mix(in srgb, var(--se-folder) 80%, transparent);
+  --nav-indentation-guide-color: color-mix(in srgb, var(--se-folder) 35%, transparent);
+}
+
+body:not(.se-plain-folders) .nav-files-container > div > .nav-folder .nav-folder-title {
+  color: var(--se-folder);
 }
 
 /* the decorated village sits at the foot of the panel and the lit tree stands over it;

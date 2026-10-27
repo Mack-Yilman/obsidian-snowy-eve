@@ -20,12 +20,12 @@ The new tab: Santa's sleigh over the decorated village, with a lit tree in the f
 - **Typography** — Lora for reading, bold Cormorant Garamond for headings, and the calligraphic Great Vibes for the note title, all embedded (no network requests). Option to use Cormorant Garamond for note titles as well.
 - **Festive headings** — each level has its own Christmas colour: gold, coral red, holly green, ice blue, frost silver and copper by night (with a soft glow on H1–H3); red, pine green, gold, blue, plum and copper by day. H2 carries a red-to-gold ribbon. Bold, italics, highlights and inline code are tinted to match.
 - **Ornaments** — Santa and his reindeer sleigh under each note title (or a golden star), a gold rule with a star under H1 and on dividers, red baubles (golden in sublists) as bullets, a bauble on H3, and checked tasks with a golden star over a red bauble.
-- **File explorer** — a snowflake replaces the folder arrow (rotates and turns gold when opened), and a lit Christmas tree with presents stands over a village decorated with strings of lights, wreaths and a snowman (night houses with glowing windows; coloured houses with snowy roofs by day).
+- **File explorer** — larger names and icons, and each top-level folder gets its own Christmas colour in order (red, gold, green, ice blue, plum, copper), shared by its subfolders. A snowflake replaces the folder arrow (rotates when opened), and a lit Christmas tree with presents stands over a village decorated with strings of lights, wreaths and a snowman (night houses with glowing windows; coloured houses with snowy roofs by day).
 - **Falling snow** over your notes and the new tab (ice-blue snowflakes by day); it never catches clicks and hides itself when your system asks to reduce motion.
 - **Frost frames** — a thin double line with snowflake corners around sidebar panels and dialogs.
 - **New tab** with Santa's sleigh crossing the sky over the decorated village, with falling snow.
 - **Graph view** — notes glow like the bulbs of a string of lights (gold by night, red by day; tags and attachments in their own Christmas colours) over the sky, the decorated village and falling snow, in the global and the local graph.
-- **Dates in note titles** — slashes (`/`, `⁄`, `∕`) are drawn in the serif face, so dates like `24∕10∕26` stay clean in the calligraphic title.
+- **Dates in note titles** — slashes (`/`, `⁄`, `∕`) are drawn in the serif face, so dates like `24∕10∕26` stay clean in the calligraphic title; headings use lining figures, so the digits of a date line up.
 
 ## Settings
 
@@ -38,6 +38,7 @@ Install the [Style Settings](https://github.com/mgmeyers/obsidian-style-settings
 | Disable the sky behind notes (stars by night, morning glow by day) | Off |
 | Disable the decorated village under the file explorer | Off |
 | Disable the Christmas tree in the file explorer | Off |
+| Single-colour folders (gold snowflakes, no colour per folder) | Off |
 | Plain graph background (keep the node colours only) | Off |
 | Emblem under the note title | Santa's sleigh |
 | Folder toggle in the file explorer | Snowflake |

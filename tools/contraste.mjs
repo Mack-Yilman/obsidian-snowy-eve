@@ -26,6 +26,7 @@ const pairs = [
   ["gold", "paper", 4.5], ["red", "paper", 4.5], ["ice", "paper", 4.5], ["pine", "paper", 3], ["ice", "canvas", 4.5],
   ["h1", "paper", 4.5], ["h2", "paper", 4.5], ["h3", "paper", 4.5], ["h4", "paper", 4.5], ["h5", "paper", 4.5], ["h6", "paper", 4.5],
   ["bold", "paper", 4.5], ["code-inline", "code-inline-bg", 4.5], ["text", "mark", 4.5],
+  ["f1", "canvas", 4.5], ["f2", "canvas", 4.5], ["f3", "canvas", 4.5], ["f4", "canvas", 4.5], ["f5", "canvas", 4.5], ["f6", "canvas", 4.5],
   ["gold", "canvas", 4.5], ["muted", "canvas", 4.5], ["faint", "canvas", 3],
 ];
 
