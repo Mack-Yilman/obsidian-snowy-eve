@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 150">
+  <defs>
+    <g id="bauble-r">
+      <rect x="-1" y="-4.4" width="2" height="1.5" rx="0.4" fill="#FFD166" stroke="#173F2A" stroke-width="0.6"/>
+      <circle cx="0" cy="0" r="3.2" fill="#E0525B" stroke="#173F2A" stroke-width="0.8"/>
+      <circle cx="-1.1" cy="-1.1" r="0.9" fill="#FFFFFF"/>
+    </g>
+    <g id="bauble-g">
+      <rect x="-1" y="-4.4" width="2" height="1.5" rx="0.4" fill="#FFD166" stroke="#173F2A" stroke-width="0.6"/>
+      <circle cx="0" cy="0" r="3.2" fill="#E9B95A" stroke="#173F2A" stroke-width="0.8"/>
+      <circle cx="-1.1" cy="-1.1" r="0.9" fill="#FFFFFF"/>
+    </g>
+  </defs>
+
+  <!-- Tronco -->
+  <g id="trunk">
+    <rect x="43" y="120" width="14" height="28" rx="1" fill="#7A4E2D" stroke="#173F2A" stroke-width="1"/>
+  </g>
+
+  <!-- Piso 4 (inferior) -->
+  <g id="tier-4">
+    <path d="M50 82 C38 96 20 108 6 119 C14 123 22 123 28 120 C34 125 42 126 50 122 C58 126 66 125 72 120 C78 123 86 123 94 119 C80 108 62 96 50 82 Z" fill="#2E7D52"/>
+    <path d="M50 82 C52 96 51 110 50 122 C58 126 66 125 72 120 C78 123 86 123 94 119 C80 108 62 96 50 82 Z" fill="#23633F"/>
+    <path d="M50 82 C38 96 20 108 6 119 C14 123 22 123 28 120 C34 125 42 126 50 122 C58 126 66 125 72 120 C78 123 86 123 94 119 C80 108 62 96 50 82 Z" fill="none" stroke="#173F2A" stroke-width="1" stroke-linejoin="round"/>
+    <path d="M6 119 C11 114 16 115 21 117 C24 118 26 116 28 115 C34 119 42 120 50 116.5 C58 120 66 119 72 115 C74 116 76 118 79 117 C84 115 89 114 94 119 C86 123 78 123 72 120 C66 125 58 126 50 122 C42 126 34 125 28 120 C22 123 14 123 6 119 Z" fill="#FFFFFF" stroke="#9DB2CC" stroke-width="0.8" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Piso 3 -->
+  <g id="tier-3">
+    <path d="M50 58 C39 71 25 83 13 94 C20 98 27 98 33 95 C38 99 44 100 50 97 C56 100 62 99 67 95 C73 98 80 98 87 94 C75 83 61 71 50 58 Z" fill="#2E7D52"/>
+    <path d="M50 58 C52 71 51 84 50 97 C56 100 62 99 67 95 C73 98 80 98 87 94 C75 83 61 71 50 58 Z" fill="#23633F"/>
+    <path d="M50 58 C39 71 25 83 13 94 C20 98 27 98 33 95 C38 99 44 100 50 97 C56 100 62 99 67 95 C73 98 80 98 87 94 C75 83 61 71 50 58 Z" fill="none" stroke="#173F2A" stroke-width="1" stroke-linejoin="round"/>
+    <path d="M13 94 C18 89.5 23 91 27 92 C30 93 31 91.5 33 90.5 C38 94 44 95 50 92 C56 95 62 94 67 90.5 C69 91.5 70 93 73 92 C77 91 82 89.5 87 94 C80 98 73 98 67 95 C62 99 56 100 50 97 C44 100 38 99 33 95 C27 98 20 98 13 94 Z" fill="#FFFFFF" stroke="#9DB2CC" stroke-width="0.8" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Piso 2 -->
+  <g id="tier-2">
+    <path d="M50 37 C41 49 30 60 20 70 C26 73 33 73 38 71 C42 74 46 75 50 72 C54 75 58 74 62 71 C67 73 74 73 80 70 C70 60 59 49 50 37 Z" fill="#2E7D52"/>
+    <path d="M50 37 C51.5 49 51 61 50 72 C54 75 58 74 62 71 C67 73 74 73 80 70 C70 60 59 49 50 37 Z" fill="#23633F"/>
+    <path d="M50 37 C41 49 30 60 20 70 C26 73 33 73 38 71 C42 74 46 75 50 72 C54 75 58 74 62 71 C67 73 74 73 80 70 C70 60 59 49 50 37 Z" fill="none" stroke="#173F2A" stroke-width="1" stroke-linejoin="round"/>
+    <path d="M20 70 C24 66 29 67 33 68 C35 69 37 68 38 66.8 C42 70 46 70.5 50 67.5 C54 70.5 58 70 62 66.8 C63 68 65 69 67 68 C71 67 76 66 80 70 C74 73 67 73 62 71 C58 74 54 75 50 72 C46 75 42 74 38 71 C33 73 26 73 20 70 Z" fill="#FFFFFF" stroke="#9DB2CC" stroke-width="0.8" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Piso 1 (superior) -->
+  <g id="tier-1">
+    <path d="M50 19 C43 29 35 39 28 47 C33 50 38 50 42 48 C45 50 48 51 50 49 C52 51 55 50 58 48 C62 50 67 50 72 47 C65 39 57 29 50 19 Z" fill="#2E7D52"/>
+    <path d="M50 19 C51 29 50.8 39 50 49 C52 51 55 50 58 48 C62 50 67 50 72 47 C65 39 57 29 50 19 Z" fill="#23633F"/>
+    <path d="M50 19 C43 29 35 39 28 47 C33 50 38 50 42 48 C45 50 48 51 50 49 C52 51 55 50 58 48 C62 50 67 50 72 47 C65 39 57 29 50 19 Z" fill="none" stroke="#173F2A" stroke-width="1" stroke-linejoin="round"/>
+    <path d="M28 47 C32 43.5 36 44.5 40 45.5 C41 45.5 42 44.5 43 44 C46 46.5 48 46.5 50 45 C52 46.5 54 46.5 57 44 C58 44.5 59 45.5 60 45.5 C64 44.5 68 43.5 72 47 C67 50 62 50 58 48 C55 50 52 51 50 49 C48 51 45 50 42 48 C38 50 33 50 28 47 Z" fill="#FFFFFF" stroke="#9DB2CC" stroke-width="0.8" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Cables de guirnaldas en diagonal -->
+  <g id="garland-wires" fill="none" stroke="#173F2A" stroke-width="1" stroke-linecap="round">
+    <path d="M36 33 Q49 39 64 41"/>
+    <path d="M28 54 Q49 63 72 64"/>
+    <path d="M20 77 Q49 88 80 89"/>
+    <path d="M13 102 Q49 114 86 113"/>
+  </g>
+
+  <!-- Esferas (8 esferas: 4 rojas #E0525B y 4 doradas #E9B95A) -->
+  <g id="baubles">
+    <use href="#bauble-r" x="49" y="29"/>
+    <use href="#bauble-g" x="40" y="51"/>
+    <use href="#bauble-r" x="60" y="53"/>
+    <use href="#bauble-r" x="32" y="74"/>
+    <use href="#bauble-g" x="52" y="76"/>
+    <use href="#bauble-r" x="68" y="79"/>
+    <use href="#bauble-g" x="26" y="99"/>
+    <use href="#bauble-g" x="64" y="102"/>
+  </g>
+
+  <!-- Bombillas (18 bombillas r=2.2 alternadas: rojo, oro, azul, blanco calido) -->
+  <g id="bulbs" stroke="#173F2A" stroke-width="0.6">
+    <!-- Piso 1 (3) -->
+    <circle cx="39" cy="34.8" r="2.2" fill="#FF5A5F"/>
+    <circle cx="50" cy="38.2" r="2.2" fill="#FFD166"/>
+    <circle cx="61" cy="40.5" r="2.2" fill="#6EC6FF"/>
+    <!-- Piso 2 (4) -->
+    <circle cx="32" cy="56.1" r="2.2" fill="#FFF3C4"/>
+    <circle cx="44" cy="60.1" r="2.2" fill="#FF5A5F"/>
+    <circle cx="56" cy="62.4" r="2.2" fill="#FFD166"/>
+    <circle cx="68" cy="63.7" r="2.2" fill="#6EC6FF"/>
+    <!-- Piso 3 (5) -->
+    <circle cx="24" cy="79.2" r="2.2" fill="#FFF3C4"/>
+    <circle cx="36" cy="83.5" r="2.2" fill="#FF5A5F"/>
+    <circle cx="49" cy="86.3" r="2.2" fill="#FFD166"/>
+    <circle cx="62" cy="87.9" r="2.2" fill="#6EC6FF"/>
+    <circle cx="75" cy="88.8" r="2.2" fill="#FFF3C4"/>
+    <!-- Piso 4 (6) -->
+    <circle cx="17" cy="104.1" r="2.2" fill="#FF5A5F"/>
+    <circle cx="29" cy="108.4" r="2.2" fill="#FFD166"/>
+    <circle cx="42" cy="111.2" r="2.2" fill="#6EC6FF"/>
+    <circle cx="55" cy="112.7" r="2.2" fill="#FFF3C4"/>
+    <circle cx="68" cy="113.3" r="2.2" fill="#FF5A5F"/>
+    <circle cx="81" cy="113.1" r="2.2" fill="#FFD166"/>
+  </g>
+
+  <!-- Estrella dorada de 5 puntas y 4 rayitos -->
+  <g id="star">
+    <path d="M36.5 6.5 L40.5 9.5 M63.5 6.5 L59.5 9.5 M35.5 19.5 L39.8 17.5 M64.5 19.5 L60.2 17.5" fill="none" stroke="#FFE7A3" stroke-width="1.6" stroke-linecap="round"/>
+    <polygon points="50,4.5 52.5,11.1 59.5,11.4 54,15.8 55.9,22.5 50,18.6 44.1,22.5 46,15.8 40.5,11.4 47.5,11.1" fill="#FFD166" stroke="#B8862A" stroke-width="1" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Regalos al pie (apoyan en y=148) -->
+  <g id="gifts" stroke="#173F2A" stroke-width="0.9" stroke-linejoin="round">
+    <!-- Regalo 1: Rojo #C0392B con cinta dorada #FFD166 (mas alto: alto 22) -->
+    <rect x="21" y="126" width="18" height="22" rx="1" fill="#C0392B"/>
+    <rect x="20" y="125" width="20" height="4" rx="0.8" fill="#C0392B"/>
+    <rect x="28.2" y="125" width="3.6" height="23" fill="#FFD166"/>
+    <rect x="21" y="135" width="18" height="3.2" fill="#FFD166"/>
+    <path d="M30 125 C26 121 24 123 26 125 C28 125 30 125 30 125 C30 125 32 125 34 125 C36 123 34 121 30 125 Z" fill="#FFD166"/>
+
+    <!-- Regalo 2: Verde #2E9E5B con cinta roja #C0392B (mediano: alto 17) -->
+    <rect x="59" y="131" width="19" height="17" rx="1" fill="#2E9E5B"/>
+    <rect x="58" y="130" width="21" height="3.8" rx="0.8" fill="#2E9E5B"/>
+    <rect x="66.8" y="130" width="3.4" height="18" fill="#C0392B"/>
+    <rect x="59" y="138.5" width="19" height="3" fill="#C0392B"/>
+    <path d="M68.5 130 C65 126.5 63 128.5 65 130 C67 130 68.5 130 68.5 130 C68.5 130 70 130 72 130 C74 128.5 72 126.5 68.5 130 Z" fill="#C0392B"/>
+
+    <!-- Regalo 3: Azul #3F7FBF con cinta blanca #FFFFFF (bajo: alto 13) -->
+    <rect x="36" y="135" width="15" height="13" rx="1" fill="#3F7FBF"/>
+    <rect x="35.2" y="134.2" width="16.6" height="3.2" rx="0.8" fill="#3F7FBF"/>
+    <rect x="42" y="134.2" width="3" height="13.8" fill="#FFFFFF"/>
+    <rect x="36" y="140.5" width="15" height="2.6" fill="#FFFFFF"/>
+    <path d="M43.5 134.2 C40.5 131.2 39 132.8 40.8 134.2 C42 134.2 43.5 134.2 43.5 134.2 C43.5 134.2 45 134.2 46.2 134.2 C48 132.8 46.5 131.2 43.5 134.2 Z" fill="#FFFFFF"/>
+  </g>
+</svg>

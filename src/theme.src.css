@@ -36,11 +36,14 @@ settings:
     max: 1
     step: 0.05
 -   id: se-no-sky
-    title: Disable the starry sky behind notes
-    description: Only in dark mode.
+    title: Disable the sky behind notes
+    description: Stars in dark mode, a morning sky glow in light mode.
     type: class-toggle
 -   id: se-no-village
-    title: Disable the snowy village under the file explorer
+    title: Disable the decorated village under the file explorer
+    type: class-toggle
+-   id: se-no-tree
+    title: Disable the Christmas tree in the file explorer
     type: class-toggle
 -   id: se-h-ornaments
     title: Ornaments
@@ -97,20 +100,20 @@ settings:
 -   id: se-info-accent
     type: info-text
     markdown: true
-    text: The accent color (buttons, selection) follows **Settings → Appearance → Accent color**. These pickers recolor headings, rules, bullets, tasks and folder snowflakes; the title emblem, the village and the frames keep the theme palette.
+    text: The accent color (buttons, selection) follows **Settings → Appearance → Accent color**. These pickers recolor rules, bullets, tasks, links and folder snowflakes; headings, the title emblem, the village, the tree and the frames keep the theme palette.
 -   id: se-gold
     title: Golden lights
     type: variable-themed-color
     format: hex
     opacity: false
-    default-light: '#8A6418'
+    default-light: '#8A5F0E'
     default-dark: '#E9B95A'
 -   id: se-red
     title: Bauble red
     type: variable-themed-color
     format: hex
     opacity: false
-    default-light: '#A51F2A'
+    default-light: '#B3202A'
     default-dark: '#E0525B'
 -   id: se-ice
     title: Ice blue
@@ -142,14 +145,24 @@ settings:
   --se-star-dot: #DCE6F5;
   --se-code-bg: #0B1630;
   --se-check-mark: #FBE3A6;
+  --se-h1: #F2C46A;
+  --se-h2: #FF7A7F;
+  --se-h3: #7FD3A0;
+  --se-h4: #8EC3F0;
+  --se-h5: #CFD9EA;
+  --se-h6: #E8A27A;
+  --se-bold: #FFF4DC;
+  --se-mark: #6B5320;
+  --se-code-inline-bg: #16294F;
+  --se-code-inline: #A9D3F5;
   --accent-h: 210;
   --accent-s: 62%;
   --accent-l: 52%;
   --se-emblem-sleigh: @@SVG:trineo-luz:#E9B95A@@, @@SVG:trineo:#C9D6EA@@;
   --se-star: @@SVG:estrella:#E9B95A@@;
   --se-frame: @@SVG:marco:#7F97BC@@;
-  --se-village: @@SVG:pueblo-ventanas:#E9B95A@@, @@SVG:pueblo:#1A2D55@@;
-  --se-lantern: @@SVG:farol-luz:#F5C76B@@, @@SVG:farol:#C9D6EA@@;
+  --se-village: @@SVG:pueblo-noche@@;
+  --se-sky: radial-gradient(ellipse at 50% 0%, color-mix(in srgb, var(--se-ice) 14%, transparent), transparent 70%);
   --color-base-00: #0E1A33;
   --color-base-05: #0C1830;
   --color-base-10: #11203D;
@@ -164,41 +177,53 @@ settings:
   --color-base-100: #E8EEF7;
 }
 
+/* light: Christmas Day — a sunny morning, a clear blue sky and coloured houses */
 .theme-light {
-  --se-canvas: #EAF0F7;
-  --se-paper: #F8FAFD;
-  --se-line: #D3DDEA;
-  --se-text: #1B2A44;
+  --se-canvas: #E4EFF9;
+  --se-paper: #FFFDF9;
+  --se-line: #D2DEEB;
+  --se-text: #1E2B3F;
   --se-muted: #4A5B78;
-  --se-faint: #687995;
-  --se-red: #A51F2A;
+  --se-faint: #66778F;
+  --se-red: #B3202A;
   --se-ice: #1F5FA8;
-  --se-gold: #8A6418;
-  --se-pine: #2F6B4F;
-  --se-snow: #9DB2CC;
-  --se-star-dot: #9DB2CC;
-  --se-code-bg: #EEF3F9;
-  --se-check-mark: #F6DC95;
-  --accent-h: 212;
-  --accent-s: 69%;
-  --accent-l: 39%;
-  --se-emblem-sleigh: @@SVG:trineo-luz:#B8862A@@, @@SVG:trineo:#4A5B78@@;
-  --se-star: @@SVG:estrella:#8A6418@@;
-  --se-frame: @@SVG:marco:#9DB2CC@@;
-  --se-village: @@SVG:pueblo-ventanas:#E2B65A@@, @@SVG:pueblo:#CBD7E6@@;
-  --se-lantern: @@SVG:farol-luz:#E2A93E@@, @@SVG:farol:#4A5B78@@;
-  --color-base-00: #F8FAFD;
-  --color-base-05: #F3F6FA;
-  --color-base-10: #EFF3F8;
-  --color-base-20: #EAF0F7;
-  --color-base-25: #E0E8F2;
-  --color-base-30: #D3DDEA;
-  --color-base-35: #C5D1E1;
-  --color-base-40: #AFBED2;
-  --color-base-50: #8C9BB3;
-  --color-base-60: #687995;
+  --se-gold: #8A5F0E;
+  --se-pine: #1E7048;
+  --se-snow: #7FA6CF;
+  --se-star-dot: transparent;
+  --se-code-bg: #F3F6FA;
+  --se-check-mark: #FFE29A;
+  --se-h1: #B3202A;
+  --se-h2: #1E7048;
+  --se-h3: #8A5F0E;
+  --se-h4: #1F5FA8;
+  --se-h5: #7B2D6B;
+  --se-h6: #9A4A1E;
+  --se-bold: #8E1B24;
+  --se-mark: #FBE6A0;
+  --se-code-inline-bg: #FBECEE;
+  --se-code-inline: #A51F2A;
+  --accent-h: 356;
+  --accent-s: 70%;
+  --accent-l: 41%;
+  --se-emblem-sleigh: @@SVG:trineo-luz:#C99A2E@@, @@SVG:trineo:#B3202A@@;
+  --se-star: @@SVG:estrella:#B88A2A@@;
+  --se-frame: @@SVG:marco:#8FB0D4@@;
+  --se-village: @@SVG:pueblo-dia@@;
+  --se-sky: linear-gradient(180deg, #CFE4F7, transparent 75%);
+  --se-flakes-day: @@SVG:copos-dia@@;
+  --color-base-00: #FFFDF9;
+  --color-base-05: #FBF9F5;
+  --color-base-10: #F4F7FA;
+  --color-base-20: #E4EFF9;
+  --color-base-25: #DAE7F4;
+  --color-base-30: #D2DEEB;
+  --color-base-35: #C3D2E3;
+  --color-base-40: #AABDD3;
+  --color-base-50: #8A9CB4;
+  --color-base-60: #66778F;
   --color-base-70: #4A5B78;
-  --color-base-100: #1B2A44;
+  --color-base-100: #1E2B3F;
 }
 
 .theme-dark,
@@ -225,7 +250,9 @@ settings:
   --text-muted: var(--se-muted);
   --text-faint: var(--se-faint);
   --text-selection: color-mix(in srgb, var(--se-ice) 28%, transparent);
-  --text-highlight-bg: color-mix(in srgb, var(--se-gold) 32%, transparent);
+  --text-highlight-bg: var(--se-mark);
+  --bold-color: var(--se-bold);
+  --italic-color: var(--se-ice);
   --caret-color: var(--se-gold);
   --link-color: var(--se-ice);
   --link-color-hover: var(--se-gold);
@@ -233,12 +260,12 @@ settings:
   --link-external-color-hover: var(--se-gold);
   --link-unresolved-color: var(--se-muted);
   --link-unresolved-decoration-color: color-mix(in srgb, var(--se-ice) 40%, transparent);
-  --h1-color: var(--se-gold);
-  --h2-color: var(--se-text);
-  --h3-color: var(--se-ice);
-  --h4-color: var(--se-red);
-  --h5-color: var(--se-muted);
-  --h6-color: var(--se-faint);
+  --h1-color: var(--se-h1);
+  --h2-color: var(--se-h2);
+  --h3-color: var(--se-h3);
+  --h4-color: var(--se-h4);
+  --h5-color: var(--se-h5);
+  --h6-color: var(--se-h6);
   --inline-title-color: var(--se-gold);
   --tag-color: var(--se-ice);
   --tag-color-hover: var(--se-text);
@@ -289,6 +316,7 @@ settings:
    ========================================================================== */
 body {
   --se-mask-bauble: @@SVG:esfera@@;
+  --se-tree: @@SVG:arbol@@;
   --se-snow-opacity: 0.6;
   --tag-border-width: 1px;
   --checkbox-radius: 50%;
@@ -318,12 +346,12 @@ body {
   --h4-size: 1.25em;
   --h5-size: 1.12em;
   --h6-size: 1.05em;
-  --h1-weight: 600;
-  --h2-weight: 600;
-  --h3-weight: 600;
-  --h4-weight: 600;
-  --h5-weight: 600;
-  --h6-weight: 600;
+  --h1-weight: 700;
+  --h2-weight: 700;
+  --h3-weight: 700;
+  --h4-weight: 700;
+  --h5-weight: 700;
+  --h6-weight: 700;
 
   font-variant-numeric: lining-nums;
   font-kerning: normal;
@@ -332,7 +360,7 @@ body {
 body.se-title-serif {
   --se-font-title: var(--se-font-display);
   --inline-title-size: 2.4em;
-  --inline-title-weight: 600;
+  --inline-title-weight: 700;
 }
 
 .markdown-rendered mark,
@@ -342,12 +370,18 @@ body.se-title-serif {
   border-radius: 2px;
 }
 
+.markdown-rendered :not(pre) > code,
+.markdown-source-view.mod-cm6 .cm-inline-code:not(.cm-formatting) {
+  color: var(--se-code-inline);
+  background-color: var(--se-code-inline-bg);
+}
+
 .view-header-title,
 .workspace-tab-header-inner-title,
 .callout-title-inner,
 .markdown-rendered th {
   font-family: var(--se-font-display);
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.02em;
 }
 
@@ -365,6 +399,11 @@ body.se-title-serif {
 
 .theme-dark .inline-title {
   text-shadow: 0 0 22px color-mix(in srgb, var(--se-gold) 35%, transparent);
+}
+
+/* dark: headings glow softly in their own colour, like lights in the night */
+.theme-dark :is(.markdown-rendered :is(h1, h2, h3), .markdown-source-view.mod-cm6 .cm-line:is(.HyperMD-header-1, .HyperMD-header-2, .HyperMD-header-3)) {
+  text-shadow: 0 0 18px color-mix(in srgb, currentcolor 35%, transparent);
 }
 
 /* emblem under the title: Santa's sleigh (two layers: the golden trail on top) or a star */
@@ -400,13 +439,13 @@ body:not(.se-no-ornaments) .markdown-source-view.mod-cm6 .cm-line.HyperMD-header
   background-repeat: no-repeat;
 }
 
-/* H2 — a gold rule fading to the right */
+/* H2 — a red-to-gold ribbon fading to the right */
 body:not(.se-no-ornaments) .markdown-rendered h2,
 body:not(.se-no-ornaments) .markdown-source-view.mod-cm6 .cm-line.HyperMD-header-2 {
   padding-bottom: 0.15em;
-  background-image: linear-gradient(90deg, color-mix(in srgb, var(--se-gold) 70%, transparent), color-mix(in srgb, var(--se-gold) 15%, transparent) 45%, transparent 88%);
+  background-image: linear-gradient(90deg, var(--se-red), var(--se-gold) 40%, color-mix(in srgb, var(--se-gold) 20%, transparent) 70%, transparent 92%);
   background-position: left bottom;
-  background-size: 100% 1px;
+  background-size: 100% 2px;
   background-repeat: no-repeat;
 }
 
@@ -530,12 +569,26 @@ body:not(.se-folder-native) .nav-folder-title:hover > .collapse-icon::after {
   background-color: var(--se-gold);
 }
 
-body:not(.se-no-village) .workspace-leaf-content[data-type="file-explorer"] .nav-files-container {
-  padding-bottom: 72px;
+/* the decorated village sits at the foot of the panel and the lit tree stands over it;
+   padding keeps the last file clear of both. The explorer has no .view-content:
+   the file list hangs straight from the leaf */
+body:not(.se-no-village) .workspace-leaf-content[data-type="file-explorer"] {
   background-image: var(--se-village);
   background-position: center bottom;
   background-size: auto 64px;
   background-repeat: repeat-x;
+}
+
+body:not(.se-no-village) .workspace-leaf-content[data-type="file-explorer"] .nav-files-container {
+  padding-bottom: 72px;
+}
+
+body:not(.se-no-tree) .workspace-leaf-content[data-type="file-explorer"] .nav-files-container {
+  padding-bottom: 150px;
+  background-image: var(--se-tree);
+  background-position: right 22px bottom 16px;
+  background-size: auto 124px;
+  background-repeat: no-repeat;
 }
 
 /* ==========================================================================
@@ -592,7 +645,7 @@ body:not(.se-no-frames) :is(.modal, .prompt) {
   border-color: transparent;
 }
 
-/* new tab: a lit lantern over the village under the night sky */
+/* new tab: Santa's sleigh crossing the sky over the decorated village, with falling snow (section 7) */
 .workspace-leaf-content[data-type="empty"] .view-content {
   background-image:
     var(--se-village),
@@ -602,22 +655,24 @@ body:not(.se-no-frames) :is(.modal, .prompt) {
     radial-gradient(circle at 81% 12%, var(--se-star-dot) 0 1.2px, transparent 1.9px),
     radial-gradient(circle at 92% 30%, var(--se-star-dot) 0 0.9px, transparent 1.5px),
     radial-gradient(circle at 24% 36%, var(--se-star-dot) 0 0.8px, transparent 1.4px),
-    radial-gradient(ellipse at 50% 0%, color-mix(in srgb, var(--se-ice) 14%, transparent), transparent 70%);
-
-  /* --se-village is two layers (lit windows, then the silhouette) */
-  background-position: center bottom, center bottom, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
-  background-size: auto 110px, auto 110px, auto, auto, auto, auto, auto, auto, auto;
-  background-repeat: repeat-x, repeat-x, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+    var(--se-sky);
+  background-position: center bottom, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
+  background-size: auto 110px, auto, auto, auto, auto, auto, auto, auto;
+  background-repeat: repeat-x, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
 }
 
 .workspace-leaf-content[data-type="empty"] .empty-state-container::before {
   content: "Snowy Eve";
   display: block;
-  padding-top: 6.4rem;
+
+  /* wider than the buttons it sits over, so the sleigh and its trail are not clipped */
+  width: 24rem;
+  margin-inline: calc((100% - 24rem) / 2);
+  padding-top: 5.6rem;
   margin-bottom: 0.3em;
-  background-image: var(--se-lantern);
+  background-image: var(--se-emblem-sleigh);
   background-position: center top;
-  background-size: auto 5.6rem;
+  background-size: auto 4.6rem;
   background-repeat: no-repeat;
   font-family: var(--se-font-title);
   font-size: 3em;
@@ -627,7 +682,7 @@ body:not(.se-no-frames) :is(.modal, .prompt) {
 
 .workspace-leaf-content[data-type="empty"] .empty-state-title {
   font-family: var(--se-font-display);
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.04em;
 }
 
@@ -647,13 +702,18 @@ body:not(.se-no-sky).theme-dark .workspace-leaf-content[data-type="markdown"] .v
   background-repeat: repeat, repeat, repeat, repeat, no-repeat;
 }
 
-.workspace-leaf-content[data-type="markdown"] .view-content {
+/* light: a clear morning sky glowing at the top of the note */
+body:not(.se-no-sky).theme-light .workspace-leaf-content[data-type="markdown"] .view-content {
+  background-image: linear-gradient(180deg, color-mix(in srgb, #CFE4F7 70%, transparent), transparent 280px);
+}
+
+.workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content {
   position: relative;
   overflow: hidden;
 }
 
-body:not(.se-no-snow) .workspace-leaf-content[data-type="markdown"] .view-content::before,
-body:not(.se-no-snow) .workspace-leaf-content[data-type="markdown"] .view-content::after {
+body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content::before,
+body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content::after {
   --se-flake: color-mix(in srgb, var(--se-snow) calc(var(--se-snow-opacity) * 100%), transparent);
 
   content: "";
@@ -666,7 +726,7 @@ body:not(.se-no-snow) .workspace-leaf-content[data-type="markdown"] .view-conten
   will-change: transform;
 }
 
-body:not(.se-no-snow) .workspace-leaf-content[data-type="markdown"] .view-content::before {
+body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content::before {
   --se-tile: 220px;
   --se-fall: 24s;
 
@@ -679,7 +739,7 @@ body:not(.se-no-snow) .workspace-leaf-content[data-type="markdown"] .view-conten
     radial-gradient(circle at 132px 160px, var(--se-flake) 0 0.8px, transparent 1.4px);
 }
 
-body:not(.se-no-snow) .workspace-leaf-content[data-type="markdown"] .view-content::after {
+body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content::after {
   --se-tile: 340px;
   --se-fall: 16s;
 
@@ -690,6 +750,13 @@ body:not(.se-no-snow) .workspace-leaf-content[data-type="markdown"] .view-conten
     radial-gradient(circle at 300px 300px, var(--se-flake) 0 2.2px, transparent 3px);
 }
 
+/* light: white dots vanish on white paper, so Christmas Day snow falls as ice-blue snowflakes */
+body:not(.se-no-snow).theme-light .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content::before,
+body:not(.se-no-snow).theme-light .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content::after {
+  background-image: var(--se-flakes-day);
+  opacity: var(--se-snow-opacity);
+}
+
 @keyframes se-snowfall {
   to {
     transform: translateY(var(--se-tile));
@@ -697,8 +764,8 @@ body:not(.se-no-snow) .workspace-leaf-content[data-type="markdown"] .view-conten
 }
 
 @media (prefers-reduced-motion: reduce) {
-  body:not(.se-no-snow) .workspace-leaf-content[data-type="markdown"] .view-content::before,
-  body:not(.se-no-snow) .workspace-leaf-content[data-type="markdown"] .view-content::after {
+  body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content::before,
+  body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content::after {
     content: none;
   }
 }
@@ -725,12 +792,13 @@ body:not(.se-no-snow) .workspace-leaf-content[data-type="markdown"] .view-conten
     display: none;
   }
 
-  .theme-dark .inline-title {
+  .theme-dark .inline-title,
+  .theme-dark :is(.markdown-rendered :is(h1, h2, h3), .markdown-source-view.mod-cm6 .cm-line:is(.HyperMD-header-1, .HyperMD-header-2, .HyperMD-header-3)) {
     text-shadow: none;
   }
 
-  body:not(.se-no-snow) .workspace-leaf-content[data-type="markdown"] .view-content::before,
-  body:not(.se-no-snow) .workspace-leaf-content[data-type="markdown"] .view-content::after {
+  body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content::before,
+  body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content::after {
     content: none;
   }
 }
