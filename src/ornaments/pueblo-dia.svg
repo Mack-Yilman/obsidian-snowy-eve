@@ -1,0 +1,208 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 160">
+  <defs>
+    <circle id="lr" r="2.6" fill="#D93A3A"/>
+    <circle id="lg" r="2.6" fill="#2E9E5B"/>
+    <circle id="ly" r="2.6" fill="#E0A82E"/>
+    <circle id="lb" r="2.6" fill="#2F80C8"/>
+    <g id="w">
+      <circle r="5" fill="none" stroke="#2E7D52" stroke-width="3.2"/>
+      <path d="M-4 -4 L0 -2 L4 -4 L3 -7 L0 -5 L-3 -7 Z" fill="#C0392B"/>
+    </g>
+    <g id="p1">
+      <path d="M0 -52 L-10 -32 L-5 -32 L-13 -16 L-7 -16 L-15 0 L15 0 L7 -16 L13 -16 L5 -32 L10 -32 Z" fill="#2E7D52"/>
+      <path d="M0 -52 L-8 -36 Q-4 -33 0 -35 Q4 -33 8 -36 Z M-6 -29 L-12 -17 Q-6 -14 0 -17 Q6 -14 12 -17 L6 -29 Q0 -26 -6 -29 Z M-8 -13 L-14 -1 Q-7 2 0 -1 Q7 2 14 -1 L8 -13 Q0 -10 -8 -13 Z" fill="#FFFFFF" stroke="#9DB2CC" stroke-width="1.2" stroke-linejoin="round"/>
+    </g>
+    <g id="p2">
+      <path d="M0 -78 L-12 -50 L-6 -50 L-16 -26 L-9 -26 L-20 0 L20 0 L9 -26 L16 -26 L6 -50 L12 -50 Z" fill="#23633F"/>
+      <path d="M0 -78 L-10 -55 Q-5 -51 0 -54 Q5 -51 10 -55 Z M-8 -44 L-15 -27 Q-7 -23 0 -27 Q7 -23 15 -27 L8 -44 Q0 -40 -8 -44 Z M-11 -20 L-19 -1 Q-9 3 0 -1 Q9 3 19 -1 L11 -20 Q0 -16 -11 -20 Z" fill="#FFFFFF" stroke="#9DB2CC" stroke-width="1.2" stroke-linejoin="round"/>
+    </g>
+  </defs>
+
+  <!-- Humo suave de 3 chimeneas -->
+  <g fill="#C9D6E6">
+    <path d="M71 48 Q66 39 74 32 Q81 26 76 18 Q85 24 81 34 Q76 41 77 48 Z"/>
+    <path d="M259 32 Q254 24 262 17 Q269 11 264 4 Q273 10 269 19 Q264 26 265 32 Z"/>
+    <path d="M515 42 Q510 34 518 27 Q525 21 520 13 Q529 19 525 28 Q520 35 521 42 Z"/>
+  </g>
+
+  <!-- Pinos del pueblo -->
+  <use href="#p1" x="34" y="147"/>
+  <use href="#p2" x="172" y="147"/>
+  <use href="#p1" x="474" y="147"/>
+  <use href="#p2" x="698" y="147"/>
+  <use href="#p1" x="825" y="148"/>
+  <use href="#p1" x="938" y="150"/>
+
+  <!-- Luces de colores en el pino 2 -->
+  <g>
+    <use href="#ly" x="172" y="68"/>
+    <use href="#lr" x="167" y="102"/>
+    <use href="#lb" x="177" y="105"/>
+    <use href="#lg" x="163" y="126"/>
+    <use href="#ly" x="173" y="123"/>
+    <use href="#lr" x="182" y="128"/>
+    <use href="#lb" x="159" y="140"/>
+    <use href="#lg" x="171" y="138"/>
+    <use href="#ly" x="183" y="141"/>
+  </g>
+
+  <!-- Casa 1: Cabana roja con chimenea -->
+  <g>
+    <rect x="68" y="54" width="11" height="26" fill="#7A4E2D"/>
+    <path d="M66 54 Q73.5 49 81 54 Q81 58 73.5 58 Q66 58 66 54 Z" fill="#FFFFFF" stroke="#9DB2CC" stroke-width="1.2"/>
+    <path d="M62 86 L100 56 L138 86 L138 148 L62 148 Z" fill="#C0392B"/>
+    <path d="M55 89 Q53 84 58 80 L96 50 Q100 47 104 50 L142 80 Q147 84 145 89 Q141 93 135 88 L100 60 L65 88 Q59 93 55 89 Z" fill="#FFFFFF" stroke="#9DB2CC" stroke-width="1.2"/>
+    <circle cx="100" cy="74" r="6" fill="#FFF3C4" stroke="#7A4E2D" stroke-width="1.5"/>
+    <rect x="70" y="102" width="14" height="18" rx="2" fill="#FFF3C4" stroke="#7A4E2D" stroke-width="1.5"/>
+    <rect x="88" y="102" width="14" height="18" rx="2" fill="#FFF3C4" stroke="#7A4E2D" stroke-width="1.5"/>
+    <rect x="110" y="110" width="18" height="38" rx="2" fill="#7A4E2D"/>
+    <use href="#w" x="119" y="124"/>
+    <path d="M60 88 Q70 94 80 88 Q90 94 100 88 Q110 94 120 88 Q130 94 140 88" fill="none" stroke="#0A1428" stroke-width="1.5"/>
+    <use href="#lr" x="65" y="91"/>
+    <use href="#lg" x="75" y="91"/>
+    <use href="#ly" x="85" y="91"/>
+    <use href="#lb" x="95" y="91"/>
+    <use href="#lr" x="105" y="91"/>
+    <use href="#lg" x="115" y="91"/>
+    <use href="#ly" x="125" y="91"/>
+    <use href="#lb" x="135" y="91"/>
+  </g>
+
+  <!-- Casa 2: Casa nordica crema de 2 plantas -->
+  <g>
+    <rect x="256" y="38" width="10" height="26" fill="#7A4E2D"/>
+    <path d="M254 38 Q261 33 268 38 Q268 42 261 42 Q254 42 254 38 Z" fill="#FFFFFF" stroke="#9DB2CC" stroke-width="1.2"/>
+    <path d="M206 74 L240 40 L274 74 L274 148 L206 148 Z" fill="#F3E3C3"/>
+    <path d="M199 77 Q197 72 202 68 L236 34 Q240 31 244 34 L278 68 Q283 72 281 77 Q277 81 271 76 L240 45 L209 76 Q203 81 199 77 Z" fill="#FFFFFF" stroke="#9DB2CC" stroke-width="1.2"/>
+    <rect x="218" y="82" width="16" height="16" rx="2" fill="#FFF3C4" stroke="#7A4E2D" stroke-width="1.5"/>
+    <rect x="246" y="82" width="16" height="16" rx="2" fill="#FFF3C4" stroke="#7A4E2D" stroke-width="1.5"/>
+    <rect x="216" y="110" width="18" height="38" rx="2" fill="#7A4E2D"/>
+    <use href="#w" x="225" y="124"/>
+    <rect x="242" y="110" width="22" height="20" rx="2" fill="#FFF3C4" stroke="#7A4E2D" stroke-width="1.5"/>
+    <path d="M204 75 Q216 81 228 75 Q240 81 252 75 Q264 81 276 75" fill="none" stroke="#0A1428" stroke-width="1.5"/>
+    <use href="#lg" x="210" y="78"/>
+    <use href="#ly" x="222" y="78"/>
+    <use href="#lb" x="234" y="78"/>
+    <use href="#lr" x="246" y="78"/>
+    <use href="#lg" x="258" y="78"/>
+    <use href="#ly" x="270" y="78"/>
+  </g>
+
+  <!-- Muneco de nieve -->
+  <g>
+    <circle cx="306" cy="133" r="13" fill="#FFFFFF" stroke="#9DB2CC" stroke-width="1.2"/>
+    <circle cx="306" cy="113" r="9.5" fill="#FFFFFF" stroke="#9DB2CC" stroke-width="1.2"/>
+    <circle cx="306" cy="97" r="7" fill="#FFFFFF" stroke="#9DB2CC" stroke-width="1.2"/>
+    <polygon points="306,95 316,97.5 306,100" fill="#F28C38"/>
+    <path d="M298 103 Q306 106 314 103 L314 108 Q306 111 298 108 Z M309 105 L314 105 L315 119 L309 119 Z" fill="#C0392B"/>
+    <path d="M296 90 L316 90 L316 93 L296 93 Z M300 79 L312 79 L312 90 L300 90 Z" fill="#2B2B2B"/>
+  </g>
+
+  <!-- Casa 3: Iglesia pequena con campanario -->
+  <g>
+    <path d="M370 84 L408 56 L446 84 L446 148 L370 148 Z" fill="#E8B84A"/>
+    <path d="M366 86 Q364 81 369 78 L404 51 Q408 48 412 51 L450 79 Q454 83 451 87 Q447 91 442 86 L408 60 L374 86 Q369 90 366 86 Z" fill="#FFFFFF" stroke="#9DB2CC" stroke-width="1.2"/>
+    <circle cx="408" cy="74" r="6" fill="#FFF3C4" stroke="#7A4E2D" stroke-width="1.5"/>
+    <path d="M386 98 A7 7 0 0 1 400 98 L400 124 L386 124 Z" fill="#FFF3C4" stroke="#7A4E2D" stroke-width="1.5"/>
+    <path d="M416 98 A7 7 0 0 1 430 98 L430 124 L416 124 Z" fill="#FFF3C4" stroke="#7A4E2D" stroke-width="1.5"/>
+    <path d="M356.4 19 L359.6 19 L359.6 23 L363 23 L363 26.2 L359.6 26.2 L359.6 33 L356.4 33 L356.4 26.2 L353 26.2 L353 23 L356.4 23 Z" fill="#E0A82E"/>
+    <rect x="338" y="54" width="40" height="94" fill="#F3E3C3"/>
+    <path d="M333 56 Q331 52 335 49 L355 30 Q358 27 361 30 L381 49 Q385 52 383 56 Q379 59 374 55 L358 39 L342 55 Q337 59 333 56 Z" fill="#FFFFFF" stroke="#9DB2CC" stroke-width="1.2"/>
+    <path d="M350 68 A8 8 0 0 1 366 68 L366 88 L350 88 Z" fill="#FFF3C4" stroke="#7A4E2D" stroke-width="1.5"/>
+    <path d="M348 116 A10 10 0 0 1 368 116 L368 148 L348 148 Z" fill="#7A4E2D"/>
+    <use href="#w" x="358" y="126"/>
+    <path d="M336 56 Q347 62 358 56 Q369 62 380 56" fill="none" stroke="#0A1428" stroke-width="1.5"/>
+    <use href="#lr" x="342" y="59"/>
+    <use href="#lg" x="353" y="59"/>
+    <use href="#ly" x="363" y="59"/>
+    <use href="#lb" x="374" y="59"/>
+    <path d="M378 85 Q390 91 402 85 Q414 91 426 85 Q437 91 448 85" fill="none" stroke="#0A1428" stroke-width="1.5"/>
+    <use href="#lr" x="384" y="88"/>
+    <use href="#lg" x="396" y="88"/>
+    <use href="#ly" x="408" y="88"/>
+    <use href="#lb" x="420" y="88"/>
+    <use href="#lr" x="432" y="88"/>
+    <use href="#lg" x="443" y="88"/>
+  </g>
+
+  <!-- Casa 4: Casa azul mansarda con buhardilla -->
+  <g>
+    <rect x="512" y="48" width="10" height="22" fill="#7A4E2D"/>
+    <path d="M510 48 Q517 43 524 48 Q524 52 517 52 Q510 52 510 48 Z" fill="#FFFFFF" stroke="#9DB2CC" stroke-width="1.2"/>
+    <rect x="504" y="86" width="84" height="62" fill="#3F7FBF"/>
+    <path d="M498 88 Q496 83 500 79 L514 62 Q517 59 522 59 L570 59 Q575 59 578 62 L592 79 Q596 83 594 88 Q590 91 584 88 L508 88 Q502 91 498 88 Z" fill="#FFFFFF" stroke="#9DB2CC" stroke-width="1.2"/>
+    <path d="M534 84 L534 68 L546 58 L558 68 L558 84 Z" fill="#3F7FBF"/>
+    <path d="M531 70 L546 56 L561 70 L558 73 L546 62 L534 73 Z" fill="#FFFFFF" stroke="#9DB2CC" stroke-width="1.2"/>
+    <rect x="540" y="69" width="12" height="12" rx="1.5" fill="#FFF3C4" stroke="#7A4E2D" stroke-width="1.5"/>
+    <rect x="512" y="104" width="18" height="20" rx="2" fill="#FFF3C4" stroke="#7A4E2D" stroke-width="1.5"/>
+    <rect x="537" y="110" width="18" height="38" rx="2" fill="#7A4E2D"/>
+    <use href="#w" x="546" y="124"/>
+    <rect x="562" y="104" width="18" height="20" rx="2" fill="#FFF3C4" stroke="#7A4E2D" stroke-width="1.5"/>
+    <path d="M502 88 Q513 94 524 88 Q535 94 546 88 Q557 94 568 88 Q579 94 590 88" fill="none" stroke="#0A1428" stroke-width="1.5"/>
+    <use href="#lb" x="508" y="91"/>
+    <use href="#lr" x="519" y="91"/>
+    <use href="#lg" x="530" y="91"/>
+    <use href="#ly" x="541" y="91"/>
+    <use href="#lb" x="552" y="91"/>
+    <use href="#lr" x="563" y="91"/>
+    <use href="#lg" x="574" y="91"/>
+    <use href="#ly" x="585" y="91"/>
+  </g>
+
+  <!-- Casa 5: Cabana alpina verde pino -->
+  <g>
+    <path d="M608 90 L638 48 L668 90 L668 148 L608 148 Z" fill="#2E7D52"/>
+    <path d="M601 93 Q599 88 603 84 L634 42 Q638 38 642 42 L673 84 Q677 88 675 93 Q671 96 666 91 L638 53 L610 91 Q605 96 601 93 Z" fill="#FFFFFF" stroke="#9DB2CC" stroke-width="1.2"/>
+    <rect x="630" y="68" width="16" height="16" rx="2" fill="#FFF3C4" stroke="#7A4E2D" stroke-width="1.5"/>
+    <rect x="616" y="112" width="17" height="36" rx="2" fill="#7A4E2D"/>
+    <use href="#w" x="624.5" y="125"/>
+    <rect x="641" y="108" width="19" height="18" rx="2" fill="#FFF3C4" stroke="#7A4E2D" stroke-width="1.5"/>
+    <path d="M606 91 Q617 97 628 91 Q638 97 649 91 Q660 97 670 91" fill="none" stroke="#0A1428" stroke-width="1.5"/>
+    <use href="#lr" x="612" y="94"/>
+    <use href="#lg" x="623" y="94"/>
+    <use href="#ly" x="633" y="94"/>
+    <use href="#lb" x="644" y="94"/>
+    <use href="#lr" x="655" y="94"/>
+    <use href="#lg" x="665" y="94"/>
+  </g>
+
+  <!-- Casa 6: Casona amarilla de doble ventanal -->
+  <g>
+    <path d="M728 82 L764 52 L800 82 L800 148 L728 148 Z" fill="#E8B84A"/>
+    <path d="M721 85 Q719 80 724 76 L760 46 Q764 43 768 46 L804 76 Q809 80 807 85 Q803 89 797 84 L764 56 L731 84 Q725 89 721 85 Z" fill="#FFFFFF" stroke="#9DB2CC" stroke-width="1.2"/>
+    <circle cx="764" cy="70" r="6" fill="#FFF3C4" stroke="#7A4E2D" stroke-width="1.5"/>
+    <rect x="736" y="96" width="14" height="24" rx="2" fill="#FFF3C4" stroke="#7A4E2D" stroke-width="1.5"/>
+    <rect x="754" y="96" width="14" height="24" rx="2" fill="#FFF3C4" stroke="#7A4E2D" stroke-width="1.5"/>
+    <rect x="774" y="110" width="18" height="38" rx="2" fill="#7A4E2D"/>
+    <use href="#w" x="783" y="124"/>
+    <path d="M726 84 Q739 90 752 84 Q764 90 777 84 Q790 90 802 84" fill="none" stroke="#0A1428" stroke-width="1.5"/>
+    <use href="#ly" x="733" y="87"/>
+    <use href="#lb" x="746" y="87"/>
+    <use href="#lr" x="758" y="87"/>
+    <use href="#lg" x="771" y="87"/>
+    <use href="#ly" x="784" y="87"/>
+    <use href="#lb" x="796" y="87"/>
+  </g>
+
+  <!-- Casa 7: Posada roja navidena con chimenea -->
+  <g>
+    <rect x="898" y="54" width="10" height="24" fill="#7A4E2D"/>
+    <path d="M896 54 Q903 49 910 54 Q910 58 903 58 Q896 58 896 54 Z" fill="#FFFFFF" stroke="#9DB2CC" stroke-width="1.2"/>
+    <path d="M852 88 L884 60 L916 88 L916 148 L852 148 Z" fill="#C0392B"/>
+    <path d="M845 91 Q843 86 848 82 L880 54 Q884 51 888 54 L920 82 Q925 86 923 91 Q919 95 913 90 L884 65 L855 90 Q849 95 845 91 Z" fill="#FFFFFF" stroke="#9DB2CC" stroke-width="1.2"/>
+    <rect x="860" y="112" width="18" height="36" rx="2" fill="#7A4E2D"/>
+    <use href="#w" x="869" y="125"/>
+    <rect x="886" y="106" width="20" height="20" rx="2" fill="#FFF3C4" stroke="#7A4E2D" stroke-width="1.5"/>
+    <path d="M850 90 Q861 96 872 90 Q884 96 896 90 Q907 96 918 90" fill="none" stroke="#0A1428" stroke-width="1.5"/>
+    <use href="#lr" x="856" y="93"/>
+    <use href="#lg" x="867" y="93"/>
+    <use href="#ly" x="878" y="93"/>
+    <use href="#lb" x="890" y="93"/>
+    <use href="#lr" x="901" y="93"/>
+    <use href="#lg" x="912" y="93"/>
+  </g>
+
+  <!-- Suelo de nieve continuo (empata en y=146 en x=0 y x=960) -->
+  <path d="M0 146 C80 146 120 142 190 144 C260 146 310 149 380 145 C450 141 510 144 580 147 C650 149 710 142 780 144 C850 146 900 146 960 146 L960 160 L0 160 Z" fill="#FFFFFF"/>
+  <path d="M0 146 C80 146 120 142 190 144 C260 146 310 149 380 145 C450 141 510 144 580 147 C650 149 710 142 780 144 C850 146 900 146 960 146" fill="none" stroke="#B8C9DD" stroke-width="1.5"/>
+</svg>

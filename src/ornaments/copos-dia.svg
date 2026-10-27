@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220">
+  <defs>
+    <g id="f" fill="none" stroke="#7FA6CF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 2.5 L12 21.5 M3.8 7.2 L20.2 16.8 M20.2 7.2 L3.8 16.8 M9.2 4.9 L12 6.5 L14.8 4.9 M9.2 19.1 L12 17.5 L14.8 19.1 M16.8 6 L16.8 9.2 L19.6 10.8 M19.6 13.2 L16.8 14.8 L16.8 18 M7.2 18 L7.2 14.8 L4.4 13.2 M4.4 10.8 L7.2 9.2 L7.2 6"/>
+    </g>
+  </defs>
+  <use href="#f" transform="translate(14 22) scale(0.6)"/>
+  <use href="#f" transform="translate(82 100) scale(0.45)"/>
+  <use href="#f" transform="translate(150 36) scale(0.55)"/>
+  <use href="#f" transform="translate(190 168) scale(0.4)"/>
+  <use href="#f" transform="translate(46 178) scale(0.5)"/>
+  <use href="#f" transform="translate(126 148) scale(0.35)"/>
+</svg>

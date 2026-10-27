@@ -1,6 +1,6 @@
 # Snowy Eve ❄️
 
-A cozy Christmas theme for [Obsidian](https://obsidian.md): a midnight blue sky with faint stars behind notes, snow-white text, golden lights, and red baubles by night, and snow-white paper with night-blue ink by day. Classic serif and script typography, festive ornaments, Santa's sleigh under every note title, snowflake folder toggles, a snowy village, and gently falling snow.
+A cozy Christmas theme for [Obsidian](https://obsidian.md): Christmas Eve by night — a midnight blue sky with faint stars, golden lights and red baubles — and Christmas Day by morning — a clear blue sky, warm white paper and coloured houses. Classic serif and script typography, festive headings, Santa's sleigh under every note title, a lit Christmas tree over a decorated village, snowflake folder toggles and gently falling snow.
 
 ![Snowy Eve — dark mode](docs/dark.png)
 
@@ -8,13 +8,14 @@ A cozy Christmas theme for [Obsidian](https://obsidian.md): a midnight blue sky 
 
 ## Features
 
-- **Dark and light modes** — *Snowy Christmas Eve* (midnight blue sky with faint stars behind notes, snow-white text, golden lights, red baubles) and *Snowy morning* (snow-white paper, night-blue ink). Text contrast meets WCAG AA in both.
-- **Typography** — Lora for reading, Cormorant Garamond for headings, and the calligraphic Great Vibes for the note title, all embedded (no network requests). Option to use Cormorant Garamond for note titles as well.
+- **Dark and light modes** — *Christmas Eve* (midnight blue sky with faint stars behind notes, snow-white text, golden lights, red baubles) and *Christmas Day* (a sunny morning: clear blue sky, warm white paper, red, pine green and gold). Text contrast meets WCAG AA in both, headings included.
+- **Typography** — Lora for reading, bold Cormorant Garamond for headings, and the calligraphic Great Vibes for the note title, all embedded (no network requests). Option to use Cormorant Garamond for note titles as well.
+- **Festive headings** — each level has its own Christmas colour: gold, coral red, holly green, ice blue, frost silver and copper by night (with a soft glow on H1–H3); red, pine green, gold, blue, plum and copper by day. H2 carries a red-to-gold ribbon. Bold, italics, highlights and inline code are tinted to match.
 - **Ornaments** — Santa and his reindeer sleigh under each note title (or a golden star), a gold rule with a star under H1 and on dividers, red baubles (golden in sublists) as bullets, a bauble on H3, and checked tasks with a golden star over a red bauble.
-- **File explorer** — a snowflake replaces the folder arrow (rotates and turns gold when opened) and a snowy village with glowing windows sits at the foot of the panel.
-- **Falling snow** over your notes; it never catches clicks and hides itself when your system asks to reduce motion.
+- **File explorer** — a snowflake replaces the folder arrow (rotates and turns gold when opened), and a lit Christmas tree with presents stands over a village decorated with strings of lights, wreaths and a snowman (night houses with glowing windows; coloured houses with snowy roofs by day).
+- **Falling snow** over your notes and the new tab (ice-blue snowflakes by day); it never catches clicks and hides itself when your system asks to reduce motion.
 - **Frost frames** — a thin double line with snowflake corners around sidebar panels and dialogs.
-- **New tab** with a glowing lantern over the snowy village under the starry sky.
+- **New tab** with Santa's sleigh crossing the sky over the decorated village, with falling snow.
 
 ## Settings
 
@@ -24,8 +25,9 @@ Install the [Style Settings](https://github.com/mgmeyers/obsidian-style-settings
 |---|---|
 | Disable falling snow | Off |
 | Snow intensity | 0.6 |
-| Disable the starry sky behind notes | Off |
-| Disable the snowy village under the file explorer | Off |
+| Disable the sky behind notes (stars by night, morning glow by day) | Off |
+| Disable the decorated village under the file explorer | Off |
+| Disable the Christmas tree in the file explorer | Off |
 | Emblem under the note title | Santa's sleigh |
 | Folder toggle in the file explorer | Snowflake |
 | Plain list bullets | Off |
@@ -58,7 +60,7 @@ node tools/contraste.mjs  # checks the palette contrast
 
 ## Español
 
-Tema navideño para Obsidian, claro y oscuro: cielo azul medianoche con estrellas tenues, luces doradas y esferas rojas de noche, y papel blanco nieve con tinta azul noche de día. Tipografía con serifa y caligráfica, trineo de Santa bajo el título de cada nota, copos de nieve en las carpetas, un pueblo nevado y nieve que cae suavemente. Las opciones se configuran con el plugin Style Settings.
+Tema navideño para Obsidian: de noche, la espera de Nochebuena (cielo azul medianoche con estrellas, luces doradas y esferas rojas); de día, la mañana de Navidad (cielo azul despejado, papel blanco cálido y casas de colores). Encabezados con un color navideño por nivel, trineo de Santa bajo el título de cada nota, un árbol iluminado sobre un pueblo adornado con luces, copos de nieve en las carpetas y nieve que cae suavemente. Las opciones se configuran con el plugin Style Settings.
 
 ## Credits
 
