@@ -51,7 +51,11 @@ settings:
     type: class-toggle
 -   id: se-no-graph-scene
     title: Plain graph background
-    description: Keeps the Christmas node colours but removes the sky, village and snow behind the graph.
+    description: Keeps the Christmas node colours but removes the sky and stars behind the graph.
+    type: class-toggle
+-   id: se-no-graph-glow
+    title: Graph without glow
+    description: Flat nodes and lines, without the halo around the baubles. Lighter on very large graphs.
     type: class-toggle
 -   id: se-h-ornaments
     title: Ornaments
@@ -221,7 +225,9 @@ settings:
   --graph-node-attachment: var(--se-h3);
   --graph-node-unresolved: color-mix(in srgb, var(--se-ice) 45%, transparent);
   --graph-node-focused: var(--se-bold);
-  --graph-line: color-mix(in srgb, var(--se-ice) 35%, transparent);
+  --graph-line: color-mix(in srgb, var(--se-gold) 55%, transparent);
+  --se-graph-highlight: #FBE3A6;
+  --se-graph-glow: 0 0 5px color-mix(in srgb, var(--se-gold) 75%, transparent);
   --se-sky: radial-gradient(ellipse at 50% 0%, color-mix(in srgb, var(--se-ice) 14%, transparent), transparent 70%);
   --color-base-00: #0E1A33;
   --color-base-05: #0C1830;
@@ -278,12 +284,14 @@ settings:
   --se-f5: #7B2D6B;
   --se-f6: #9A4A1E;
   --se-sky: linear-gradient(180deg, #FBE6BC, transparent 75%);
-  --graph-node: var(--se-red);
-  --graph-node-tag: var(--se-pine);
-  --graph-node-attachment: var(--se-gold);
+  --graph-node: #B88A2A;
+  --graph-node-tag: var(--se-red);
+  --graph-node-attachment: var(--se-pine);
   --graph-node-unresolved: color-mix(in srgb, var(--se-muted) 45%, transparent);
   --graph-node-focused: var(--se-bold);
-  --graph-line: color-mix(in srgb, var(--se-muted) 45%, transparent);
+  --graph-line: color-mix(in srgb, var(--se-gold) 60%, transparent);
+  --se-graph-highlight: var(--se-red);
+  --se-graph-glow: 0 1px 2px color-mix(in srgb, var(--se-text) 35%, transparent);
   --color-base-00: #FFFAF2;
   --color-base-05: #FBF5EC;
   --color-base-10: #F7EFE3;
@@ -778,22 +786,51 @@ body:not(.se-no-frames) :is(.modal, .prompt) {
   border-color: transparent;
 }
 
-/* new tab and graph view: Santa's sleigh (new tab only) crossing the sky over the decorated village,
-   with falling snow (section 7) */
-.workspace-leaf-content[data-type="empty"] .view-content,
-body:not(.se-no-graph-scene) .workspace-leaf-content:is([data-type="graph"], [data-type="localgraph"]) .view-content {
-  background-image:
-    var(--se-village),
+/* new tab: Santa's sleigh crossing the sky over the decorated village, with falling snow (section 7) */
+body {
+  --se-sky-stars:
     radial-gradient(circle at 12% 18%, var(--se-star-dot) 0 1px, transparent 1.6px),
     radial-gradient(circle at 34% 9%, var(--se-star-dot) 0 1.3px, transparent 2px),
     radial-gradient(circle at 58% 22%, var(--se-star-dot) 0 0.9px, transparent 1.5px),
     radial-gradient(circle at 81% 12%, var(--se-star-dot) 0 1.2px, transparent 1.9px),
     radial-gradient(circle at 92% 30%, var(--se-star-dot) 0 0.9px, transparent 1.5px),
-    radial-gradient(circle at 24% 36%, var(--se-star-dot) 0 0.8px, transparent 1.4px),
-    var(--se-sky);
+    radial-gradient(circle at 24% 36%, var(--se-star-dot) 0 0.8px, transparent 1.4px);
+}
+
+.workspace-leaf-content[data-type="empty"] .view-content {
+  background-image: var(--se-village), var(--se-sky-stars), var(--se-sky);
   background-position: center bottom, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
   background-size: auto 110px, auto, auto, auto, auto, auto, auto, auto;
   background-repeat: repeat-x, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+}
+
+/* graph view: the open sky only, no village and no falling snow, so nothing animates over the canvas;
+   a still field of stars stands in for the snow */
+body:not(.se-no-graph-scene) .workspace-leaf-content:is([data-type="graph"], [data-type="localgraph"]) .view-content {
+  background-image:
+    var(--se-sky-stars),
+    radial-gradient(circle at 30px 40px, color-mix(in srgb, var(--se-star-dot) 70%, transparent) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 170px 90px, color-mix(in srgb, var(--se-star-dot) 45%, transparent) 0 0.8px, transparent 1.4px),
+    radial-gradient(circle at 250px 210px, color-mix(in srgb, var(--se-star-dot) 60%, transparent) 0 1.2px, transparent 1.8px),
+    radial-gradient(circle at 90px 260px, color-mix(in srgb, var(--se-star-dot) 40%, transparent) 0 0.8px, transparent 1.4px),
+    radial-gradient(circle at 210px 150px, color-mix(in srgb, var(--se-star-dot) 50%, transparent) 0 0.9px, transparent 1.5px),
+    var(--se-sky);
+  background-size: auto, auto, auto, auto, auto, auto, 230px 230px, 230px 230px, 230px 230px, 230px 230px, 230px 230px, auto;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, repeat, repeat, repeat, repeat, repeat, no-repeat;
+}
+
+/* the graph is painted inside this iframe (the canvas beside it only takes the pointer) and takes nothing but
+   colours from the theme, so a soft halo turns the nodes into lit baubles (dark) or hung ornaments (light) */
+body:not(.se-no-graph-glow) .workspace-leaf-content:is([data-type="graph"], [data-type="localgraph"]) .view-content > iframe {
+  filter: drop-shadow(var(--se-graph-glow));
+
+  /* the filter lifts the iframe over the canvas that handles dragging and zooming: let the pointer through */
+  pointer-events: none;
+}
+
+/* hovering a node lights up its garland: the node and the lines it hangs from */
+.graph-view:is(.color-fill-highlight, .color-line-highlight) {
+  color: var(--se-graph-highlight);
 }
 
 .workspace-leaf-content[data-type="empty"] .empty-state-container::before {
@@ -843,13 +880,13 @@ body:not(.se-no-sky).theme-light .workspace-leaf-content[data-type="markdown"] .
   background-image: linear-gradient(180deg, color-mix(in srgb, #FBE6BC 70%, transparent), transparent 280px);
 }
 
-.workspace-leaf-content:is([data-type="markdown"], [data-type="empty"], [data-type="graph"], [data-type="localgraph"]) .view-content {
+.workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content {
   position: relative;
   overflow: hidden;
 }
 
-body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"], [data-type="graph"], [data-type="localgraph"]) .view-content::before,
-body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"], [data-type="graph"], [data-type="localgraph"]) .view-content::after {
+body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content::before,
+body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content::after {
   --se-flake: color-mix(in srgb, var(--se-snow) calc(var(--se-snow-opacity) * 100%), transparent);
 
   content: "";
@@ -862,7 +899,7 @@ body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-t
   will-change: transform;
 }
 
-body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"], [data-type="graph"], [data-type="localgraph"]) .view-content::before {
+body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content::before {
   --se-tile: 220px;
   --se-fall: 24s;
 
@@ -875,7 +912,7 @@ body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-t
     radial-gradient(circle at 132px 160px, var(--se-flake) 0 0.8px, transparent 1.4px);
 }
 
-body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"], [data-type="graph"], [data-type="localgraph"]) .view-content::after {
+body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content::after {
   --se-tile: 340px;
   --se-fall: 16s;
 
@@ -889,8 +926,8 @@ body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-t
 /* light: white snow vanishes on ivory paper, so on Christmas Day small fairy lights twinkle instead.
    They stay in place; like the lights on a tree, each one belongs to one of three groups (--se-on-a/b/c) that blink
    on and off at their own pace, so some lights are always lit while others rest */
-body:not(.se-no-snow).theme-light .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"], [data-type="graph"], [data-type="localgraph"]) .view-content::before,
-body:not(.se-no-snow).theme-light .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"], [data-type="graph"], [data-type="localgraph"]) .view-content::after {
+body:not(.se-no-snow).theme-light .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content::before,
+body:not(.se-no-snow).theme-light .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content::after {
   /* lights read fainter than snow on a dark sky: the default intensity (0.6) shows them at 0.9 */
   opacity: min(1, var(--se-snow-opacity) * 1.5);
   animation:
@@ -899,7 +936,7 @@ body:not(.se-no-snow).theme-light .workspace-leaf-content:is([data-type="markdow
     se-blink-c 4.1s steps(4) -2.6s infinite;
 }
 
-body:not(.se-no-snow).theme-light .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"], [data-type="graph"], [data-type="localgraph"]) .view-content::before {
+body:not(.se-no-snow).theme-light .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content::before {
   background-image:
     radial-gradient(circle at 20px 30px, color-mix(in srgb, var(--se-gold) calc(var(--se-on-a) * 100%), transparent) 0 1.3px, color-mix(in srgb, var(--se-gold) calc(var(--se-on-a) * 30%), transparent) 2px, transparent 3.9px),
     radial-gradient(circle at 92px 112px, color-mix(in srgb, var(--se-red) calc(var(--se-on-b) * 100%), transparent) 0 1.2px, color-mix(in srgb, var(--se-red) calc(var(--se-on-b) * 30%), transparent) 1.9px, transparent 3.6px),
@@ -907,7 +944,7 @@ body:not(.se-no-snow).theme-light .workspace-leaf-content:is([data-type="markdow
     radial-gradient(circle at 58px 190px, color-mix(in srgb, var(--se-ice) calc(var(--se-on-a) * 100%), transparent) 0 1.1px, color-mix(in srgb, var(--se-ice) calc(var(--se-on-a) * 30%), transparent) 1.8px, transparent 3.3px);
 }
 
-body:not(.se-no-snow).theme-light .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"], [data-type="graph"], [data-type="localgraph"]) .view-content::after {
+body:not(.se-no-snow).theme-light .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content::after {
   background-image:
     radial-gradient(circle at 250px 40px, color-mix(in srgb, var(--se-gold) calc(var(--se-on-c) * 100%), transparent) 0 1.5px, color-mix(in srgb, var(--se-gold) calc(var(--se-on-c) * 30%), transparent) 2.2px, transparent 4.5px),
     radial-gradient(circle at 170px 230px, color-mix(in srgb, var(--se-red) calc(var(--se-on-b) * 100%), transparent) 0 1.4px, color-mix(in srgb, var(--se-red) calc(var(--se-on-b) * 30%), transparent) 2.1px, transparent 4.2px);
@@ -924,17 +961,6 @@ body:not(.se-no-snow).theme-light .workspace-leaf-content[data-type="markdown"] 
     rgb(0 0 0 / 35%) calc(50% - var(--se-column)),
     rgb(0 0 0 / 35%) calc(50% + var(--se-column)),
     #000 calc(50% + var(--se-column) + 6rem));
-}
-
-/* the graph controls stay above the falling snow */
-.workspace-leaf-content:is([data-type="graph"], [data-type="localgraph"]) .graph-controls {
-  z-index: 2;
-}
-
-/* plain graph background: keep the node colours, drop the snow */
-body.se-no-graph-scene .workspace-leaf-content:is([data-type="graph"], [data-type="localgraph"]) .view-content::before,
-body.se-no-graph-scene .workspace-leaf-content:is([data-type="graph"], [data-type="localgraph"]) .view-content::after {
-  content: none;
 }
 
 @keyframes se-snowfall {
@@ -980,8 +1006,8 @@ body.se-no-graph-scene .workspace-leaf-content:is([data-type="graph"], [data-typ
 }
 
 @media (prefers-reduced-motion: reduce) {
-  body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"], [data-type="graph"], [data-type="localgraph"]) .view-content::before,
-  body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"], [data-type="graph"], [data-type="localgraph"]) .view-content::after {
+  body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content::before,
+  body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content::after {
     content: none;
   }
 }
@@ -1013,8 +1039,8 @@ body.se-no-graph-scene .workspace-leaf-content:is([data-type="graph"], [data-typ
     text-shadow: none;
   }
 
-  body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"], [data-type="graph"], [data-type="localgraph"]) .view-content::before,
-  body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"], [data-type="graph"], [data-type="localgraph"]) .view-content::after {
+  body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content::before,
+  body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content::after {
     content: none;
   }
 }
