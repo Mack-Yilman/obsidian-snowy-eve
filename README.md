@@ -12,7 +12,11 @@ The new tab: Santa's sleigh over the decorated village, with a lit tree in the f
 
 ![Snowy Eve — new tab, light mode](docs/new-tab-light.png)
 
+The graph view: Christmas baubles connected by golden garlands over a quiet sky — a warm glow by night, soft shadows by day.
+
 ![Snowy Eve — graph view, dark mode](docs/graph.png)
+
+![Snowy Eve — graph view, light mode](docs/graph-light.png)
 
 ## Features
 
@@ -21,10 +25,10 @@ The new tab: Santa's sleigh over the decorated village, with a lit tree in the f
 - **Festive headings** — each level has its own Christmas colour: gold, coral red, holly green, ice blue, frost silver and copper by night (with a soft glow on H1–H3); red, pine green, gold, house blue, plum and copper by day. H2 carries a red-to-gold ribbon. Bold, italics, highlights and inline code are tinted to match.
 - **Ornaments** — Santa and his reindeer sleigh under each note title (or a golden star), a gold rule with a star under H1 and on dividers, red baubles (golden in sublists) as bullets, a bauble on H3, and checked tasks with a golden star over a red bauble.
 - **File explorer** — larger names and icons, and each top-level folder gets its own Christmas colour in order (red, gold, green, ice blue, plum, copper), shared by its subfolders. A snowflake replaces the folder arrow (rotates when opened), and a lit Christmas tree with presents stands over a village decorated with strings of lights, wreaths and a snowman (night houses with glowing windows; coloured houses with snowy roofs by day).
-- **Falling snow by night, twinkling lights by day** over your notes, the new tab and the graph. By day, small gold, red, green and blue fairy lights blink in three groups out of step, like the lights on a tree, and fade to a third behind the text column so they never get in the way of reading. Neither ever catches clicks, and both hide themselves when your system asks to reduce motion.
+- **Falling snow by night, twinkling lights by day** over your notes and the new tab. By day, small gold, red, green and blue fairy lights blink in three groups out of step, like the lights on a tree, and fade to a third behind the text column so they never get in the way of reading. Neither ever catches clicks, and both hide themselves when your system asks to reduce motion.
 - **Frost frames** — a thin double line with snowflake corners around sidebar panels and dialogs.
 - **New tab** with Santa's sleigh crossing the sky over the decorated village, with falling snow by night and twinkling lights by day.
-- **Graph view** — notes glow like the bulbs of a string of lights (gold by night, red by day; tags and attachments in their own Christmas colours) over the sky, the decorated village and falling snow (twinkling lights by day), in the global and the local graph.
+- **Graph view** — notes become golden Christmas baubles, like the lights on the tree (tags and attachments in coral red and holly green by night, red and pine green by day), hung on golden garland lines, with a soft halo around them (a golden glow by night, a gentle shadow over ivory paper by day). Hovering a node lights it and its connections up (light gold by night, red by day). Behind it there is only a calm sky (a still field of stars by night, the warm morning glow by day), with no village and nothing animated, so the graph stays smooth. In the global and the local graph.
 - **Dates in note titles and headings** use lining figures, so the digits of a date like `24∕10∕26` line up.
 
 ## Settings
@@ -39,7 +43,8 @@ Install the [Style Settings](https://github.com/mgmeyers/obsidian-style-settings
 | Disable the decorated village under the file explorer | Off |
 | Disable the Christmas tree in the file explorer | Off |
 | Single-colour folders (gold snowflakes, no colour per folder) | Off |
-| Plain graph background (keep the node colours only) | Off |
+| Plain graph background (remove the sky and stars) | Off |
+| Graph without glow (flat nodes, lighter on very large graphs) | Off |
 | Emblem under the note title | Santa's sleigh |
 | Folder toggle in the file explorer | Snowflake |
 | Plain list bullets | Off |
