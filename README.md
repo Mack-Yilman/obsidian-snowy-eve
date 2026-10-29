@@ -14,7 +14,7 @@ The new tab: Santa's sleigh over the decorated village, with a lit tree in the f
 
 The graph view: Christmas baubles connected by golden garlands over a quiet sky — a warm glow by night, soft shadows by day.
 
-![Snowy Eve — graph view, dark mode](docs/graph.png)
+![Snowy Eve — graph view, dark mode](docs/graph-dark.png)
 
 ![Snowy Eve — graph view, light mode](docs/graph-light.png)
 
