@@ -1,7 +1,7 @@
 /* ==========================================================================
    Snowy Eve — a snowy Christmas Eve theme for Obsidian
    A midnight-blue sky over a snowed-in village, warm golden lights and red baubles;
-   a warm Christmas morning with twinkling lights by day.
+   a warm Christmas morning with a pine garland by day.
 
    Author: Mack Chirinos · MIT License
 
@@ -891,7 +891,7 @@ body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-t
 body:not(.se-no-snow).theme-light .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content::before {
   inset: 0 0 auto;
   height: 70px;
-  opacity: min(1, var(--se-snow-opacity) * 2);
+  opacity: min(1, var(--se-snow-opacity) / 0.6);
   background-image: var(--se-garland);
   background-size: 400px 70px;
   background-repeat: repeat-x;
@@ -900,7 +900,7 @@ body:not(.se-no-snow).theme-light .workspace-leaf-content:is([data-type="markdow
 }
 
 /* the garland keeps its own strip: the note scrolls below it, so it never covers the title or the text */
-body:not(.se-no-snow).theme-light .workspace-leaf-content[data-type="markdown"] .view-content {
+body:not(.se-no-snow).theme-light .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content {
   padding-top: 70px;
 }
 
@@ -951,5 +951,9 @@ body:not(.se-no-snow).theme-light .workspace-leaf-content:is([data-type="markdow
   body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content::before,
   body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content::after {
     content: none;
+  }
+
+  body:not(.se-no-snow).theme-light .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content {
+    padding-top: 0;
   }
 }

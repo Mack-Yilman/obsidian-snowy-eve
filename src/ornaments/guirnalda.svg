@@ -16,7 +16,7 @@
 .s5 { animation-duration: 6.8s; animation-delay: -3.4s }
 .s6 { animation-duration: 5.4s; animation-delay: -4.9s }
 @media (prefers-reduced-motion: reduce) {
-  * { animation: none }
+  .s1, .s2, .s3, .s4, .s5, .s6 { animation: none }
 }
 </style>
 <defs>
