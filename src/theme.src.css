@@ -143,9 +143,9 @@ settings:
    1. Palette & Obsidian variables
    ========================================================================== */
 .theme-dark {
-  --se-canvas: #0A1428;
-  --se-paper: #0E1A33;
-  --se-line: #22355C;
+  --se-canvas: #050B1A;
+  --se-paper: #081226;
+  --se-line: #1A2A4C;
   --se-text: #E8EEF7;
   --se-muted: #A9B8D0;
   --se-faint: #7D8FAE;
@@ -155,7 +155,7 @@ settings:
   --se-pine: #6FB08E;
   --se-snow: #F2F6FC;
   --se-star-dot: #DCE6F5;
-  --se-code-bg: #0B1630;
+  --se-code-bg: #060E20;
   --se-check-mark: #FBE3A6;
   --se-h1: #F2C46A;
   --se-h2: #FF7A7F;
@@ -165,7 +165,7 @@ settings:
   --se-h6: #E8A27A;
   --se-bold: #FFF4DC;
   --se-mark: #6B5320;
-  --se-code-inline-bg: #16294F;
+  --se-code-inline-bg: #101F40;
   --se-code-inline: #A9D3F5;
   --accent-h: 210;
   --accent-s: 62%;
@@ -191,14 +191,14 @@ settings:
   --se-graph-highlight: #FBE3A6;
   --se-graph-glow: 0 0 5px color-mix(in srgb, var(--se-gold) 75%, transparent);
   --se-sky: radial-gradient(ellipse at 50% 0%, color-mix(in srgb, var(--se-ice) 14%, transparent), transparent 70%);
-  --color-base-00: #0E1A33;
-  --color-base-05: #0C1830;
-  --color-base-10: #11203D;
-  --color-base-20: #0A1428;
-  --color-base-25: #142546;
-  --color-base-30: #22355C;
-  --color-base-35: #2A3F69;
-  --color-base-40: #364C78;
+  --color-base-00: #081226;
+  --color-base-05: #070F22;
+  --color-base-10: #0B1730;
+  --color-base-20: #050B1A;
+  --color-base-25: #0E1B38;
+  --color-base-30: #1A2A4C;
+  --color-base-35: #22345B;
+  --color-base-40: #2E436E;
   --color-base-50: #56698E;
   --color-base-60: #7D8FAE;
   --color-base-70: #A9B8D0;
