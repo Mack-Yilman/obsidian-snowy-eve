@@ -228,7 +228,7 @@ settings:
   --graph-line: color-mix(in srgb, var(--se-gold) 55%, transparent);
   --se-graph-highlight: #FBE3A6;
   --se-graph-glow: 0 0 5px color-mix(in srgb, var(--se-gold) 75%, transparent);
-  --se-sky: radial-gradient(ellipse at 50% 0%, color-mix(in srgb, var(--se-ice) 14%, transparent), transparent 70%);
+  --se-sky: radial-gradient(ellipse at 50% 0%, color-mix(in srgb, var(--se-ice) 8%, transparent), transparent 70%);
   --color-base-00: #081226;
   --color-base-05: #070F22;
   --color-base-10: #0B1730;
