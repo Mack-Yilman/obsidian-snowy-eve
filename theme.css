@@ -26,7 +26,7 @@ settings:
     collapsed: false
 -   id: se-no-snow
     title: Disable falling snow and the garland
-    description: Snow falls at night (dark mode) and a pine garland with swaying baubles hangs by day (light mode). When your system asks to reduce motion, the snow is hidden and the garland stays still.
+    description: Snow falls at night (dark mode) and a pine garland with swaying baubles hangs by day (light mode). Both are also hidden when your system asks to reduce motion.
     type: class-toggle
 -   id: se-snow-opacity
     title: Snow and garland intensity
@@ -925,7 +925,7 @@ body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-t
 }
 
 /* light: white snow vanishes on ivory paper, so on Christmas Day a pine garland hangs from the top of the page.
-   Only the baubles move, each one swaying inside the SVG; it respects reduced motion from there as well */
+   Only the baubles move, each one swaying inside the SVG */
 body:not(.se-no-snow).theme-light .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content::before {
   inset: 0 0 auto;
   height: 70px;
@@ -953,9 +953,13 @@ body:not(.se-no-snow).theme-light .workspace-leaf-content:is([data-type="markdow
 }
 
 @media (prefers-reduced-motion: reduce) {
-  body:not(.se-no-snow).theme-dark .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content::before,
-  body:not(.se-no-snow).theme-dark .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content::after {
+  body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content::before,
+  body:not(.se-no-snow) .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content::after {
     content: none;
+  }
+
+  body:not(.se-no-snow).theme-light .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content {
+    padding-top: 0;
   }
 }
 
