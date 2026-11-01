@@ -246,14 +246,14 @@ settings:
   --se-f5: #7B2D6B;
   --se-f6: #9A4A1E;
   --se-sky: linear-gradient(180deg, #FBE6BC, transparent 75%);
-  --graph-node: #B88A2A;
+  --graph-node: var(--se-pine);
   --graph-node-tag: var(--se-red);
-  --graph-node-attachment: var(--se-pine);
+  --graph-node-attachment: #B88A2A;
   --graph-node-unresolved: color-mix(in srgb, var(--se-muted) 45%, transparent);
   --graph-node-focused: var(--se-bold);
-  --graph-line: color-mix(in srgb, var(--se-gold) 60%, transparent);
+  --graph-line: color-mix(in srgb, var(--se-pine) 35%, transparent);
   --se-graph-highlight: var(--se-red);
-  --se-graph-glow: 0 1px 2px color-mix(in srgb, var(--se-text) 35%, transparent);
+  --se-graph-glow: 0 1px 1px color-mix(in srgb, var(--se-text) 15%, transparent);
   --color-base-00: #FFFAF2;
   --color-base-05: #FBF5EC;
   --color-base-10: #F7EFE3;
