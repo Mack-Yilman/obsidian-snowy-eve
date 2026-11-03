@@ -39,11 +39,9 @@ settings:
     title: Disable the sky behind notes
     description: Stars in dark mode, a morning sky glow in light mode.
     type: class-toggle
--   id: se-no-village
-    title: Disable the decorated village under the file explorer
-    type: class-toggle
 -   id: se-no-tree
-    title: Disable the Christmas tree in the file explorer
+    title: Disable the Christmas scene in the file explorer
+    description: Santa and the reindeer decorating the tree on Christmas Eve, and opening presents on Christmas morning.
     type: class-toggle
 -   id: se-plain-folders
     title: Single-colour folders
@@ -174,6 +172,7 @@ settings:
   --se-star: @@SVG:estrella:#E9B95A@@;
   --se-frame: @@SVG:marco:#7F97BC@@;
   --se-village: @@SVG:pueblo-noche@@;
+  --se-explorer-scene: @@SVG:escena-noche@@;
   --se-ground: #C9D6EA;
   --se-ground-edge: #E8EEF7;
   --se-f1: #FF7A7F;
@@ -237,6 +236,7 @@ settings:
   --se-star: @@SVG:estrella:#B88A2A@@;
   --se-frame: @@SVG:marco:#C9A66B@@;
   --se-village: @@SVG:pueblo-dia@@;
+  --se-explorer-scene: @@SVG:escena-dia@@;
   --se-garland: @@SVG:guirnalda@@;
   --se-ground: #FFF;
   --se-ground-edge: #B8C9DD;
@@ -373,7 +373,6 @@ settings:
    ========================================================================== */
 body {
   --se-mask-bauble: @@SVG:esfera@@;
-  --se-tree: @@SVG:arbol@@;
   --se-snow-opacity: 0.6;
   --tag-border-width: 1px;
   --checkbox-radius: 50%;
@@ -656,43 +655,20 @@ body:not(.se-plain-folders) .nav-files-container > div > .nav-folder .nav-folder
   color: var(--se-folder);
 }
 
-/* the decorated village sits at the foot of the panel and the lit tree stands in a snowy clearing at its right end.
-   Everything is drawn on the leaf (the explorer has no .view-content) so the tree and the houses share one ground:
-   two copies of the village end just left of the tree (one village is 384px wide at 64px high) and a strip of snow
-   runs under the whole width. Padding on the list keeps the last file clear of the scene */
-body:not(.se-no-village, .se-no-tree) .workspace-leaf-content[data-type="file-explorer"] {
+/* Santa and the reindeer at the foot of the panel: decorating the tree on Christmas Eve, opening presents on
+   Christmas morning. Drawn on the leaf (the explorer has no .view-content); the scene is 300x160 and shrinks with a
+   narrow panel, and a strip of snow runs under the whole width. Padding on the list keeps the last file clear of it */
+body:not(.se-no-tree) .workspace-leaf-content[data-type="file-explorer"] {
   background-image:
-    var(--se-tree),
-    var(--se-village),
-    var(--se-village),
+    var(--se-explorer-scene),
     linear-gradient(to top, var(--se-ground) 0 5px, var(--se-ground-edge) 5px 6px, transparent 6px);
-  background-position: right 22px bottom 3px, right 105px bottom, right 489px bottom, left bottom;
-  background-size: auto 124px, auto 64px, auto 64px, 100% 6px;
+  background-position: center bottom, left bottom;
+  background-size: min(100% - 16px, 300px) auto, 100% 6px;
   background-repeat: no-repeat;
-}
-
-body.se-no-tree:not(.se-no-village) .workspace-leaf-content[data-type="file-explorer"] {
-  background-image: var(--se-village);
-  background-position: center bottom;
-  background-size: auto 64px;
-  background-repeat: repeat-x;
-}
-
-body.se-no-village:not(.se-no-tree) .workspace-leaf-content[data-type="file-explorer"] {
-  background-image:
-    var(--se-tree),
-    linear-gradient(to top, var(--se-ground) 0 5px, var(--se-ground-edge) 5px 6px, transparent 6px);
-  background-position: right 22px bottom 3px, left bottom;
-  background-size: auto 124px, 100% 6px;
-  background-repeat: no-repeat;
-}
-
-body:not(.se-no-village) .workspace-leaf-content[data-type="file-explorer"] .nav-files-container {
-  padding-bottom: 72px;
 }
 
 body:not(.se-no-tree) .workspace-leaf-content[data-type="file-explorer"] .nav-files-container {
-  padding-bottom: 150px;
+  padding-bottom: 176px;
 }
 
 /* ==========================================================================
