@@ -1,7 +1,7 @@
 /* ==========================================================================
    Snowy Eve — a snowy Christmas Eve theme for Obsidian
    A midnight-blue sky over a snowed-in village, warm golden lights and red baubles;
-   a warm Christmas morning with Christmas bells ringing by day.
+   a warm Christmas morning with a stocking full of presents by day.
 
    Author: Mack Chirinos · MIT License
 
@@ -9,7 +9,7 @@
      Lora — The Lora Project Authors (SIL OFL 1.1)
      Cormorant Garamond — The Cormorant Project Authors (SIL OFL 1.1)
      Cinzel Decorative — Natanael Gama (SIL OFL 1.1)
-   Ornaments (Santa's sleigh, village, bells, star, snowflake, lantern, bauble) drawn for this theme.
+   Ornaments (Santa's sleigh, village, stocking, star, snowflake, lantern, bauble) drawn for this theme.
 
    Built by build.mjs from src/theme.src.css — edit the source, not theme.css.
    ========================================================================== */
@@ -25,11 +25,11 @@ settings:
     level: 2
     collapsed: false
 -   id: se-no-snow
-    title: Disable falling snow and the Christmas bells
-    description: Snow falls at night (dark mode) and two bells ring in the corner from time to time by day (light mode). Both are also hidden when your system asks to reduce motion.
+    title: Disable falling snow and the Christmas stocking
+    description: Snow falls at night (dark mode) and a Christmas stocking hangs in the corner by day, swaying now and then (light mode). Both are also hidden when your system asks to reduce motion.
     type: class-toggle
 -   id: se-snow-opacity
-    title: Snow and bells intensity
+    title: Snow and stocking intensity
     type: variable-number-slider
     default: 0.6
     min: 0.1
@@ -237,7 +237,7 @@ settings:
   --se-frame: @@SVG:marco:#C9A66B@@;
   --se-village: @@SVG:pueblo-dia@@;
   --se-explorer-scene: @@SVG:escena-dia@@;
-  --se-bells: @@SVG:campanas@@;
+  --se-corner: @@SVG:calcetin@@;
   --se-ground: #FFF;
   --se-ground-edge: #B8C9DD;
   --se-f1: #B3202A;
@@ -890,15 +890,16 @@ body:not(.se-no-snow, .se-no-tree).theme-dark .workspace-leaf-content[data-type=
   animation: se-snow-drift 24s linear infinite;
 }
 
-/* light: white snow vanishes on ivory paper, so on Christmas Day two bells hang in the top-right corner and ring
-   for a moment every 30s. The swing lives inside the SVG; the corner stays clear of the centred text column */
+/* light: white snow vanishes on ivory paper, so on Christmas Day a stocking full of presents hangs from a golden nail
+   in the top-right corner and sways for a moment every 20s. The swing lives inside the SVG; the corner stays clear
+   of the centred text column */
 body:not(.se-no-snow).theme-light .workspace-leaf-content:is([data-type="markdown"], [data-type="empty"]) .view-content::before {
-  inset: 6px 18px auto auto;
-  width: 96px;
-  height: 84px;
+  inset: 2px 24px auto auto;
+  width: 72px;
+  height: 104px;
   opacity: min(1, var(--se-snow-opacity) / 0.6);
-  background-image: var(--se-bells);
-  background-size: 96px 84px;
+  background-image: var(--se-corner);
+  background-size: 72px 104px;
   background-repeat: no-repeat;
   animation: none;
   will-change: auto;
